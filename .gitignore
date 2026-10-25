@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Secrets
+.env
+*.env
+!.env.example
+secrets.env
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Runtime data
+uploads/
+Backend/src/uploads/
+*.sql
+*.log
+
+# OS / editor
+.DS_Store
