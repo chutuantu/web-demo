@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../Assets/Css/var.css" />
+    <link rel="stylesheet" href="../Assets/Css/Pages/bao_cao.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <main class="khung-trang">
+<!-- PHẦN 1: BÁO CÁO -->
+    <section class="phan-bao-cao" id="phan-bao-cao">
+
+        <!-- KHU VỰC TIÊU ĐỀ -->
+        <div class="khu-vuc-tieu-de-bao-cao">
+
+            <!-- ICON -->
+            <div class="bieu-tuong-bao-cao">
+                <i class="fa-regular fa-file-lines"></i>
+                <span class="bieu-tuong-bieu-do">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+            </div>
+
+            <!-- TIÊU ĐỀ + MÔ TẢ -->
+            <div class="noi-dung-tieu-de-bao-cao">
+                <h1>Báo cáo</h1>
+
+                <p>
+                    Tổng hợp và xuất báo cáo phục vụ công tác giảng dạy
+                    và hỗ trợ sinh viên
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- KHU VỰC THAO TÁC -->
+        <div class="khu-vuc-thao-tac-bao-cao">
+
+            <!-- KHOẢNG THỜI GIAN -->
+            <button
+                type="button"
+                class="chon-khoang-thoi-gian"
+                id="chon-khoang-thoi-gian"
+            >
+
+                <i class="fa-regular fa-calendar-days"></i>
+
+                <span id="gia-tri-khoang-thoi-gian">
+                    01/01/2024 - 30/06/2024
+                </span>
+
+                <i class="fa-solid fa-chevron-down mui-ten-xuong"></i>
+
+            </button>
+
+
+            <!-- TẠO BÁO CÁO -->
+            <button
+                type="button"
+                class="nut-tao-bao-cao"
+                id="nut-tao-bao-cao"
+            >
+
+                <i class="fa-solid fa-plus"></i>
+
+                <span>
+                    Tạo báo cáo mới
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+<!-- PHẦN 2: THỐNG KÊ TỔNG QUAN-->
+<section class="phan-thong-ke-tong-quan" id="phan-thong-ke-tong-quan">
+
+
+    <!-- ================================================
+         PHẦN 2.1: TỔNG SỐ SINH VIÊN
+    ================================================= -->
+    <div class="the-thong-ke the-tong-sinh-vien" id="the-tong-sinh-vien">
+
+        <div class="bieu-tuong-thong-ke bieu-tuong-sinh-vien">
+            <i class="fa-solid fa-users"></i>
+        </div>
+
+        <div class="noi-dung-thong-ke">
+
+            <p class="tieu-de-thong-ke">
+                Tổng số sinh viên
+            </p>
+
+            <div class="hang-so-lieu">
+
+                <span class="so-lieu-thong-ke" id="tong-so-sinh-vien">
+                    256
+                </span>
+
+                <span class="don-vi-thong-ke">
+                    Sinh viên
+                </span>
+
+            </div>
+
+            <div class="hang-so-sanh tang-truong">
+
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span>
+                    12 sinh viên so với kỳ trước
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================
+         PHẦN 2.2: ĐIỂM TB HỌC KỲ
+    ================================================= -->
+    <div class="the-thong-ke the-diem-trung-binh" id="the-diem-trung-binh">
+
+        <div class="bieu-tuong-thong-ke bieu-tuong-diem-trung-binh">
+            <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div class="noi-dung-thong-ke">
+
+            <p class="tieu-de-thong-ke">
+                Điểm TB học kỳ (Dự đoán)
+            </p>
+
+            <div class="hang-so-lieu">
+
+                <span class="so-lieu-thong-ke diem-so" id="diem-trung-binh-hoc-ky">
+                    7.28
+                </span>
+
+                <span class="don-vi-thong-ke">
+                    /10
+                </span>
+
+            </div>
+
+            <div class="hang-so-sanh tang-truong">
+
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span>
+                    0.21 so với kỳ trước
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================
+         PHẦN 2.3: SINH VIÊN NGUY CƠ CAO
+    ================================================= -->
+    <div class="the-thong-ke the-nguy-co-cao" id="the-nguy-co-cao">
+
+        <div class="bieu-tuong-thong-ke bieu-tuong-canh-bao">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <div class="noi-dung-thong-ke">
+
+            <p class="tieu-de-thong-ke">
+                Sinh viên nguy cơ cao
+            </p>
+
+            <div class="hang-so-lieu">
+
+                <span class="so-lieu-thong-ke" id="so-sinh-vien-nguy-co">
+                    18
+                </span>
+
+                <span class="phan-tram-thong-ke">
+                    7.03%
+                </span>
+
+            </div>
+
+            <div class="hang-so-sanh giam-truong">
+
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span>
+                    2.31% so với kỳ trước
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================
+         PHẦN 2.4: SINH VIÊN ĐẠT GIỎI TRỞ LÊN
+    ================================================= -->
+    <div class="the-thong-ke the-sinh-vien-gioi" id="the-sinh-vien-gioi">
+
+        <div class="bieu-tuong-thong-ke bieu-tuong-thanh-tich">
+            <i class="fa-solid fa-medal"></i>
+        </div>
+
+        <div class="noi-dung-thong-ke">
+
+            <p class="tieu-de-thong-ke">
+                Sinh viên đạt loại Giỏi trở lên
+            </p>
+
+            <div class="hang-so-lieu">
+
+                <span class="so-lieu-thong-ke" id="so-sinh-vien-gioi">
+                    83
+                </span>
+
+                <span class="phan-tram-thong-ke">
+                    32.42%
+                </span>
+
+            </div>
+
+            <div class="hang-so-sanh tang-truong">
+
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span>
+                    4.15% so với kỳ trước
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+<!-- PHẦN 3: THANH TÌM KIẾM VÀ BỘ LỌC -->
+<section class="phan-tim-kiem-sinh-vien" id="phan-tim-kiem-sinh-vien">
+
+    <div class="thanh-bo-loc-sinh-vien">
+
+        <!-- ==========================================
+             3.1 TÌM KIẾM SINH VIÊN
+        =========================================== -->
+        <div class="bo-loc-tim-kiem">
+
+            <label for="tim-kiem-sinh-vien">
+                Tìm kiếm sinh viên
+            </label>
+
+            <div class="o-tim-kiem">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="tim-kiem-sinh-vien"
+                    placeholder="Tìm kiếm sinh viên..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="nut-xoa-tim-kiem"
+                    class="nut-xoa-tim-kiem"
+                    aria-label="Xóa tìm kiếm"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             3.2 LỌC LỚP
+        =========================================== -->
+        <div class="bo-loc-thong-tin">
+
+            <label for="loc-lop">
+                Lớp
+            </label>
+
+            <div class="o-select">
+
+                <select id="loc-lop">
+
+                    <option value="tat-ca">
+                        Tất cả
+                    </option>
+
+                    <option value="cntt01">
+                        CNTT01
+                    </option>
+
+                    <option value="cntt02">
+                        CNTT02
+                    </option>
+
+                    <option value="cntt03">
+                        CNTT03
+                    </option>
+
+                    <option value="cntt04">
+                        CNTT04
+                    </option>
+
+                </select>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             3.3 LỌC HỌC KỲ
+        =========================================== -->
+        <div class="bo-loc-thong-tin">
+
+            <label for="loc-hoc-ky">
+                Học kỳ
+            </label>
+
+            <div class="o-select">
+
+                <select id="loc-hoc-ky">
+
+                    <option value="hk2-2023-2024">
+                        HK 2 (2023 - 2024)
+                    </option>
+
+                    <option value="hk1-2023-2024">
+                        HK 1 (2023 - 2024)
+                    </option>
+
+                    <option value="hk2-2022-2023">
+                        HK 2 (2022 - 2023)
+                    </option>
+
+                    <option value="hk1-2022-2023">
+                        HK 1 (2022 - 2023)
+                    </option>
+
+                </select>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             3.4 KHOẢNG THỜI GIAN
+        =========================================== -->
+
+<div class="bo-loc-thoi-gian">
+
+    <label for="loc-khoang-thoi-gian">
+        Khoảng thời gian
+    </label>
+
+    <div class="o-ngay">
+
+        <input
+            type="text"
+            id="loc-khoang-thoi-gian"
+            value="01/01/2024 - 30/06/2024"
+            placeholder="DD/MM/YYYY - DD/MM/YYYY"
+            autocomplete="off"
+        >
+
+        <!-- CHỈ 1 ICON LỊCH -->
+        <i
+            class="fa-regular fa-calendar-days bieu-tuong-lich"
+            id="nut-mo-lich"
+            title="Chọn khoảng thời gian"
+        ></i>
+
+        <!-- Input ngày ẩn -->
+        <input
+            type="date"
+            id="ngay-bat-dau"
+            class="lich-an"
+        >
+
+        <input
+            type="date"
+            id="ngay-ket-thuc"
+            class="lich-an"
+        >
+
+    </div>
+
+</div>
+
+        <!-- ==========================================
+             3.5 NÚT LỌC
+        =========================================== -->
+        <button
+            type="button"
+            class="nut-loc-sinh-vien"
+            id="nut-loc-sinh-vien"
+        >
+
+            <i class="fa-solid fa-filter"></i>
+
+            <span>Lọc</span>
+
+        </button>
+
+    </div>
+
+</section>
+<!-- gop-->
+<section class="gop_bieu_do">
+    <!-- PHẦN 4: PHÂN BỐ ĐIỂM GPA -->
+<section class="phan-phan-bo-gpa" id="phan-phan-bo-gpa">
+
+    <div class="the-phan-bo-gpa">
+
+        <!-- ============================================
+             TIÊU ĐỀ
+        ============================================= -->
+        <div class="tieu-de-bieu-do-gpa">
+            <h2>Phân bố điểm GPA (Dự đoán)</h2>
+        </div>
+
+
+        <!-- ============================================
+             NỘI DUNG BIỂU ĐỒ
+        ============================================= -->
+        <div class="noi-dung-bieu-do-gpa">
+
+
+            <!-- ========================================
+                 BIỂU ĐỒ DONUT
+            ========================================= -->
+            <div class="khu-vuc-donut-gpa">
+
+                <div
+                    class="bieu-do-donut-gpa"
+                    id="bieu-do-donut-gpa"
+                >
+
+                    <div class="trung-tam-donut-gpa">
+
+                        <strong id="tong-sinh-vien-gpa">
+                            256
+                        </strong>
+
+                        <span>
+                            Sinh viên
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+                 CHÚ THÍCH GPA
+            ========================================= -->
+            <div class="chu-thich-gpa" id="chu-thich-gpa">
+
+
+                <!-- GIỎI -->
+                <div class="dong-chu-thich-gpa">
+
+                    <span class="mau-gpa mau-gioi"></span>
+
+                    <div class="noi-dung-chu-thich">
+
+                        <span class="ten-muc-gpa">
+                            Giỏi (8.0 - 10)
+                        </span>
+
+                        <span class="gia-tri-gpa">
+                            <strong>83</strong>
+                            (32.42%)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KHÁ -->
+                <div class="dong-chu-thich-gpa">
+
+                    <span class="mau-gpa mau-kha"></span>
+
+                    <div class="noi-dung-chu-thich">
+
+                        <span class="ten-muc-gpa">
+                            Khá (6.5 - 7.9)
+                        </span>
+
+                        <span class="gia-tri-gpa">
+                            <strong>102</strong>
+                            (39.84%)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRUNG BÌNH -->
+                <div class="dong-chu-thich-gpa">
+
+                    <span class="mau-gpa mau-trung-binh"></span>
+
+                    <div class="noi-dung-chu-thich">
+
+                        <span class="ten-muc-gpa">
+                            Trung bình (5.0 - 6.4)
+                        </span>
+
+                        <span class="gia-tri-gpa">
+                            <strong>48</strong>
+                            (18.75%)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- YẾU -->
+                <div class="dong-chu-thich-gpa">
+
+                    <span class="mau-gpa mau-yeu"></span>
+
+                    <div class="noi-dung-chu-thich">
+
+                        <span class="ten-muc-gpa">
+                            Yếu (3.5 - 4.9)
+                        </span>
+
+                        <span class="gia-tri-gpa">
+                            <strong>16</strong>
+                            (6.25%)
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KÉM -->
+                <div class="dong-chu-thich-gpa">
+
+                    <span class="mau-gpa mau-kem"></span>
+
+                    <div class="noi-dung-chu-thich">
+
+                        <span class="ten-muc-gpa">
+                            Kém (&lt; 3.5)
+                        </span>
+
+                        <span class="gia-tri-gpa">
+                            <strong>7</strong>
+                            (2.73%)
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ============================================
+             XEM CHI TIẾT
+        ============================================= -->
+        <button
+            type="button"
+            class="nut-xem-chi-tiet-gpa"
+            id="nut-xem-chi-tiet-gpa"
+        >
+            <span>Xem chi tiết</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+</section>
+<!--  PHẦN 5: XU HƯỚNG ĐIỂM TRUNG BÌNH -->
+<section
+    class="phan-xu-huong-diem-trung-binh"
+    id="phan-xu-huong-diem-trung-binh"
+>
+
+    <div class="the-xu-huong-diem">
+
+        <!-- ==========================================
+             TIÊU ĐỀ
+        =========================================== -->
+        <div class="tieu-de-xu-huong">
+
+            <h2>
+                Xu hướng điểm trung bình (Dự đoán)
+            </h2>
+
+            <button
+                type="button"
+                class="nut-xem-chi-tiet-xu-huong"
+                id="nut-xem-chi-tiet-xu-huong"
+            >
+                Xem chi tiết
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ==========================================
+             BIỂU ĐỒ
+        =========================================== -->
+        <div class="khung-xu-huong-diem">
+
+            <!-- TRỤC Y -->
+            <div class="cot-truc-y">
+
+                <span>10</span>
+                <span>8</span>
+                <span>6</span>
+                <span>4</span>
+                <span>2</span>
+                <span>0</span>
+
+            </div>
+
+
+            <!-- KHU VỰC BIỂU ĐỒ -->
+            <div class="khu-vuc-bieu-do">
+
+                <!-- ĐƯỜNG LƯỚI -->
+                <div class="luoi-ngang luoi-10"></div>
+                <div class="luoi-ngang luoi-8"></div>
+                <div class="luoi-ngang luoi-6"></div>
+                <div class="luoi-ngang luoi-4"></div>
+                <div class="luoi-ngang luoi-2"></div>
+                <div class="luoi-ngang luoi-0"></div>
+
+
+                <!-- SVG -->
+                <svg
+                    id="bieu-do-xu-huong"
+                    class="bieu-do-xu-huong"
+                    viewBox="0 0 500 180"
+                    preserveAspectRatio="none"
+                >
+
+                    <!-- vùng nền -->
+                    <path
+                        id="vung-duoi-duong"
+                        class="vung-duoi-duong"
+                    ></path>
+
+                    <!-- đường biểu đồ -->
+                    <path
+                        id="duong-bieu-do"
+                        class="duong-bieu-do"
+                    ></path>
+
+                    <!-- các điểm -->
+                    <g
+                        id="nhom-diem-bieu-do"
+                        class="nhom-diem-bieu-do"
+                    ></g>
+
+                </svg>
+
+
+                <!-- NHÃN ĐIỂM -->
+                <div
+                    class="nhan-diem-bieu-do"
+                    id="nhan-diem-bieu-do"
+                ></div>
+
+
+                <!-- NHÃN HỌC KỲ -->
+                <div
+                    class="nhan-hoc-ky"
+                    id="nhan-hoc-ky"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+<section class="nguy_co_cai_tao">
+    <!--PHẦN 6: PHÂN BỐ MỨC ĐỘ NGUY CƠ -->
+<section
+    class="phan-phan-bo-muc-do-nguy-co"
+    id="phan-phan-bo-muc-do-nguy-co"
+>
+
+    <div class="the-phan-bo-nguy-co">
+
+        <!-- ==========================================
+             TIÊU ĐỀ
+        =========================================== -->
+        <div class="tieu-de-phan-bo-nguy-co">
+
+            <h2>
+                Phân bố mức độ nguy cơ
+            </h2>
+
+            <button
+                type="button"
+                class="nut-xem-chi-tiet-nguy-co"
+                id="nut-xem-chi-tiet-nguy-co"
+            >
+                Xem chi tiết
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ==========================================
+             NỘI DUNG
+        =========================================== -->
+        <div class="noi-dung-phan-bo-nguy-co">
+
+            <!-- ======================================
+                 BIỂU ĐỒ DONUT
+            ======================================= -->
+            <div class="khu-vuc-donut-nguy-co">
+
+                <div class="bieu-do-donut-nguy-co">
+
+                    <svg
+                        class="svg-donut-nguy-co"
+                        id="svg-donut-nguy-co"
+                        viewBox="0 0 200 200"
+                    >
+
+                        <!-- Vòng nền -->
+                        <circle
+                            class="vong-nen-donut"
+                            cx="100"
+                            cy="100"
+                            r="72"
+                        ></circle>
+
+
+                        <!-- Nguy cơ thấp -->
+                        <circle
+                            class="phan-donut-nguy-co phan-nguy-co-thap"
+                            id="donut-nguy-co-thap"
+                            cx="100"
+                            cy="100"
+                            r="72"
+                        ></circle>
+
+
+                        <!-- Nguy cơ trung bình -->
+                        <circle
+                            class="phan-donut-nguy-co phan-nguy-co-trung-binh"
+                            id="donut-nguy-co-trung-binh"
+                            cx="100"
+                            cy="100"
+                            r="72"
+                        ></circle>
+
+
+                        <!-- Nguy cơ cao -->
+                        <circle
+                            class="phan-donut-nguy-co phan-nguy-co-cao"
+                            id="donut-nguy-co-cao"
+                            cx="100"
+                            cy="100"
+                            r="72"
+                        ></circle>
+
+                    </svg>
+
+
+                    <!-- ==================================
+                         SỐ TỔNG Ở GIỮA
+                    =================================== -->
+                    <div class="tong-so-nguy-co">
+
+                        <strong id="tong-sinh-vien-nguy-co">
+                            256
+                        </strong>
+
+                        <span>
+                            Sinh viên
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================
+                 CHÚ THÍCH
+            ======================================= -->
+            <div
+                class="chu-thich-nguy-co"
+                id="chu-thich-nguy-co"
+            >
+
+                <!-- Nguy cơ thấp -->
+                <div class="dong-chu-thich-nguy-co">
+
+                    <span
+                        class="dau-mau-nguy-co dau-mau-thap"
+                    ></span>
+
+                    <div class="thong-tin-nguy-co">
+
+                        <div class="ten-nguy-co">
+                            Nguy cơ thấp
+                        </div>
+
+                        <div class="so-luong-nguy-co">
+                            <strong>152</strong>
+                            <span>(59.38%)</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Nguy cơ trung bình -->
+                <div class="dong-chu-thich-nguy-co">
+
+                    <span
+                        class="dau-mau-nguy-co dau-mau-trung-binh"
+                    ></span>
+
+                    <div class="thong-tin-nguy-co">
+
+                        <div class="ten-nguy-co">
+                            Nguy cơ trung bình
+                        </div>
+
+                        <div class="so-luong-nguy-co">
+                            <strong>86</strong>
+                            <span>(33.59%)</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Nguy cơ cao -->
+                <div class="dong-chu-thich-nguy-co">
+
+                    <span
+                        class="dau-mau-nguy-co dau-mau-cao"
+                    ></span>
+
+                    <div class="thong-tin-nguy-co">
+
+                        <div class="ten-nguy-co">
+                            Nguy cơ cao
+                        </div>
+
+                        <div class="so-luong-nguy-co">
+                            <strong>18</strong>
+                            <span>(7.03%)</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- PHẦN 8: DANH SÁCH BÁO CÁO ĐÃ TẠO -->
+<section
+    class="phan-danh-sach-bao-cao"
+    id="phan-danh-sach-bao-cao"
+>
+
+    <div class="the-danh-sach-bao-cao">
+
+        <!-- ==========================================
+             TIÊU ĐỀ
+        =========================================== -->
+        <div class="tieu-de-danh-sach-bao-cao">
+
+            <h2>
+                Danh sách báo cáo đã tạo
+            </h2>
+
+            <button
+                type="button"
+                class="nut-xem-tat-ca-bao-cao"
+                id="nut-xem-tat-ca-bao-cao"
+            >
+
+                Xem tất cả
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- ==========================================
+             DANH SÁCH
+        =========================================== -->
+        <div
+            class="danh-sach-bao-cao"
+            id="danh-sach-bao-cao"
+        >
+
+            <!-- JavaScript tạo dữ liệu -->
+
+        </div>
+
+    </div>
+
+</section>
+</section>
+
+<!--  PHẦN 7: KẾT QUẢ THEO HỌC PHẦN -->
+<section
+    class="phan-ket-qua-theo-hoc-phan"
+    id="phan-ket-qua-theo-hoc-phan"
+>
+
+    <div class="the-ket-qua-hoc-phan">
+
+        <!-- ==========================================
+             TIÊU ĐỀ
+        =========================================== -->
+        <div class="tieu-de-ket-qua-hoc-phan">
+
+            <h2>
+                Kết quả theo học phần
+                <span>
+                    (Top 5 học phần có nhiều sinh viên)
+                </span>
+            </h2>
+
+            <button
+                type="button"
+                class="nut-xem-tat-ca-hoc-phan"
+                id="nut-xem-tat-ca-hoc-phan"
+            >
+                <span>Xem tất cả</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ==========================================
+             BẢNG KẾT QUẢ
+        =========================================== -->
+        <div class="khung-bang-hoc-phan">
+
+            <table
+                class="bang-ket-qua-hoc-phan"
+                id="bang-ket-qua-hoc-phan"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th class="cot-stt">
+                            STT
+                        </th>
+
+                        <th class="cot-hoc-phan">
+                            Học phần
+                        </th>
+
+                        <th class="cot-so-sinh-vien">
+                            Số SV
+                        </th>
+
+                        <th class="cot-diem-trung-binh">
+                            Điểm TB (Dự đoán)
+                        </th>
+
+                        <th class="cot-ty-le-dat">
+                            Tỷ lệ đạt (≥5.0)
+                        </th>
+
+                        <th class="cot-nguy-co-cao">
+                            Nguy cơ cao
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="du-lieu-hoc-phan">
+
+                    <!-- Dữ liệu được JavaScript tạo -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ==========================================
+             NÚT XEM TẤT CẢ
+        =========================================== -->
+        <div class="chan-the-hoc-phan">
+
+            <button
+                type="button"
+                class="nut-xem-tat-ca-duoi"
+                id="nut-xem-tat-ca-duoi"
+            >
+
+                Xem tất cả
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+  </body>
+  <script src="../Assets/JavaScript/Pages/bao_cao.js"></script>
+</html>

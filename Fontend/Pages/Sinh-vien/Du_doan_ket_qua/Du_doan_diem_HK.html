@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../../Assets/Css/Pages/Sinh-vien/Du_doan_ket_qua/Du-doan-diem-HK.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Dự đoán điểm trung bình học kỳ</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="../Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="#"
+              >DỰ ĐOÁN KẾT QUẢ
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="menu-con">
+              <li class="lua-chon-3-1">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_HP.html"
+                  >Dự đoán điểm trung bình học phần</a
+                >
+              </li>
+              <li class="lua-chon-3-2">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_HK.html"
+                  >Dự đoán GPA của học kỳ</a
+                >
+              </li>
+              <li class="lua-chon-3-3">
+                <a href="../Du_doan_ket_qua/Du_doan_GPA_HK_sau.html"
+                  >Dự đoán GPA học kỳ tiếp theo</a
+                >
+              </li>
+              <li class="lua-chon-3-4">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_GPA_ky_vong.html"
+                  >Dự đoán điểm GPA tốt nghiệp kỳ vọng</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-3">
+            <a href="../Ho-tro-hoc-tap.html">HỖ TRỢ HỌC TẬP </a>
+          </li>-->
+
+          <li class="lua-chon-4">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar"></div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="noi-dung-trang">
+      <!--========================
+            DANH SÁCH MÔN HỌC
+        =========================-->
+
+      <section class="khu-danh-sach-mon-hoc">
+        <!-- Header -->
+
+        <div class="tieu-de-danh-sach">
+          <div class="trai">
+            <i class="fa-solid fa-list-check"></i>
+
+            <h2>Danh sách học phần</h2>
+          </div>
+
+          <div class="phai">
+            <div class="khu-lua-chon">
+              <div class="o-lua-chon">
+                <label for="hoc-ky"> Học kỳ </label>
+
+                <select id="hoc-ky">
+                  <option value="HK1">HK 1</option>
+                  <option value="HK2">HK 2</option>
+                </select>
+              </div>
+
+              <div class="o-lua-chon">
+                <label for="nam-hoc"> Năm học </label>
+
+                <select id="nam-hoc">
+                  <option value="2024 - 2025">2024 - 2025</option>
+                  <option value="2025 - 2026">2025 - 2026</option>
+                  <option value="2026 - 2027">2026 - 2027</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="nut-them-mon">
+              <i class="fa-solid fa-plus"></i>
+              Thêm môn
+            </button>
+          </div>
+        </div>
+
+        <!--========================
+                BẢNG
+            =========================-->
+
+        <div class="bang-mon-hoc">
+          <table>
+            <thead>
+              <tr>
+                <th>STT</th>
+
+                <th>Tên học phần</th>
+
+                <th>Số tín chỉ</th>
+
+                <th>
+                  Điểm chuyên cần (0-10)
+                  <i class="fa-regular fa-circle-question"></i>
+                </th>
+
+                <th>
+                  Điểm thường xuyên (0-10)
+                  <i class="fa-regular fa-circle-question"></i>
+                </th>
+
+                <th>
+                  Điểm thi (nếu có) (0-10)
+                  <i class="fa-regular fa-circle-question"></i>
+                </th>
+
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+
+            <tbody id="bang-du-lieu-mon-hoc">
+              <!--====================-->
+
+              <tr>
+                <td>1</td>
+
+                <td>
+                  <div class="khung-goi-y-mon-hoc">
+                    <input
+                      type="text"
+                      class="nhap-ten-hoc-phan"
+                      placeholder="Nhập tên học phần..."
+                      autocomplete="off"
+                    />
+
+                    <div class="danh-sach-goi-y"></div>
+                  </div>
+                </td>
+
+                <td class="o-so-tin-chi">--</td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <button class="nut-xoa">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+
+                <td>
+                  <div class="khung-goi-y-mon-hoc">
+                    <input
+                      type="text"
+                      class="nhap-ten-hoc-phan"
+                      placeholder="Nhập tên học phần..."
+                      autocomplete="off"
+                    />
+
+                    <div class="danh-sach-goi-y"></div>
+                  </div>
+                </td>
+
+                <td class="o-so-tin-chi">--</td>
+
+                <td>
+                  <input type="number" value="" min="0" max="10" step="0.01" />
+                </td>
+
+                <td>
+                  <input type="number" value="" min="0" max="10" step="0.01" />
+                </td>
+
+                <td>
+                  <input type="number" value="" min="0" max="10" step="0.01" />
+                </td>
+
+                <td>
+                  <button class="nut-xoa">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+
+                <td>
+                  <div class="khung-goi-y-mon-hoc">
+                    <input
+                      type="text"
+                      class="nhap-ten-hoc-phan"
+                      placeholder="Nhập tên học phần..."
+                      autocomplete="off"
+                    />
+
+                    <div class="danh-sach-goi-y"></div>
+                  </div>
+                </td>
+
+                <td class="o-so-tin-chi">--</td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <input type="number" value="" />
+                </td>
+
+                <td>
+                  <button class="nut-xoa">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!--========================
+                GHI CHÚ
+            =========================-->
+
+        <div class="ghi-chu-du-doan">
+          <div class="noi-dung-ghi-chu">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <span>
+              Các trường có dấu (*) là bắt buộc để hệ thống thực hiện dự đoán.
+            </span>
+          </div>
+        </div>
+
+        <!--========================
+                NÚT DỰ ĐOÁN
+            =========================-->
+
+        <div class="khu-nut-du-doan">
+          <button id="nut-du-doan">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Dự đoán kết quả học kỳ
+          </button>
+        </div>
+      </section>
+
+      <!--==================================================
+                PHẦN 2.1 - KẾT QUẢ DỰ ĐOÁN
+===================================================-->
+
+      <section class="khu-ket-qua-du-doan" id="ket-qua-du-doan">
+        <!-- Header -->
+
+        <div class="tieu-de-ket-qua">
+          <div class="ben-trai-tieu-de">
+            <div class="bieu-tuong-ket-qua">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+              <h2>Kết quả dự đoán</h2>
+
+              <p>
+                Dự đoán lúc:
+                <span id="thoi-gian-du-doan"> 23/05/2025 10:30:45 </span>
+              </p>
+            </div>
+          </div>
+
+          <button id="nut-tai-bao-cao">
+            <i class="fa-solid fa-download"></i>
+
+            Tải báo cáo
+          </button>
+        </div>
+
+        <!-- 4 THẺ KẾT QUẢ -->
+
+        <div class="luoi-the-ket-qua">
+          <!-- GPA -->
+
+          <div class="the-ket-qua the-gpa">
+            <div class="noi-dung-the">
+              <span class="tieu-de-the"> GPA học kỳ dự đoán </span>
+
+              <h2>
+                <span id="gpa-du-doan"></span>
+
+                <small>/ 4.0</small>
+              </h2>
+
+              <p class="thay-doi-tich-cuc">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span id="chenh-lech-gpa"> 0.18 </span>
+
+                so với học kỳ trước
+              </p>
+            </div>
+
+            <div class="icon-the">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+
+          <!-- ĐIỂM HỆ 10 -->
+
+          <div class="the-ket-qua the-he-10">
+            <div class="noi-dung-the">
+              <span class="tieu-de-the"> Điểm hệ 10 </span>
+
+              <h2>
+                <span id="diem-he-10"></span>
+
+                <small>/ 10</small>
+              </h2>
+
+              <p class="thay-doi-tich-cuc">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span id="chenh-lech-he-10"> 0.35 </span>
+
+                so với học kỳ trước
+              </p>
+            </div>
+
+            <div class="icon-the">
+              <i class="fa-regular fa-star"></i>
+            </div>
+          </div>
+
+          <!-- XẾP LOẠI -->
+
+          <div class="the-ket-qua the-xep-loai">
+            <div class="noi-dung-the">
+              <span class="tieu-de-the"> Xếp loại dự kiến </span>
+
+              <h2 id="xep-loai-du-kien"></h2>
+
+              <p id="loi-nhan">Giữ vững phong độ nhé!</p>
+            </div>
+
+            <div class="icon-the">
+              <i class="fa-solid fa-award"></i>
+            </div>
+          </div>
+
+          <!-- TÍN CHỈ -->
+
+          <div class="the-ket-qua the-tin-chi">
+            <div class="noi-dung-the">
+              <span class="tieu-de-the"> Tổng tín chỉ </span>
+
+              <h2>
+                <span id="tong-tin-chi"></span>
+              </h2>
+
+              <p>
+                <span id="phan-tram-hoan-thanh"> 0% </span>
+
+                môn đã nhập
+              </p>
+            </div>
+
+            <div class="icon-the">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- biểu đồ -->
+        <div class="khu-bieu-do">
+          <!--=========================
+                BIỂU ĐỒ CỘT
+        ==========================-->
+
+          <div class="hop-bieu-do">
+            <div class="tieu-de-bieu-do">
+              <div class="trai-tieu-de-bieu-do">
+                <i class="fa-solid fa-chart-column"></i>
+
+                <div>
+                  <h3>ĐIỂM DỰ ĐOÁN TỪNG MÔN</h3>
+
+                  <p>Điểm dự đoán của từng học phần</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-wrapper">
+              <!-- Phần thân đồ thị chính -->
+              <div class="chart-main">
+                <!-- Các mốc số trục Y cố định (Tỷ lệ từ 10.0 xuống 0.0) -->
+                <div class="axis-y">
+                  <span>10.0</span>
+                  <span>8.0</span>
+                  <span>6.0</span>
+                  <span>4.0</span>
+                  <span>2.0</span>
+                  <span>0.0</span>
+                </div>
+
+                <!-- Khu vực hiển thị nền lưới và các cột điểm -->
+                <div class="chart-area" id="chartArea">
+                  <!-- Hệ thống đường lưới ngang chạy dưới nền -->
+                  <div class="grid-lines">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                  </div>
+
+                  <!-- JavaScript sẽ tự động tính toán và chèn các cột điểm vào đây -->
+                </div>
+              </div>
+
+              <!-- Khu vực hiển thị mã môn học ở trục X dưới chân cột -->
+              <div class="axis-x" id="axisX"></div>
+
+              <!-- Khối chú thích (Legend) phân loại màu giống ảnh mẫu -->
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <div class="dot-green"></div>
+                  <span>Đạt</span>
+                </div>
+                <div class="legend-item">
+                  <div class="dot-orange"></div>
+                  <span>Không đạt</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="chartTooltip" class="chart-tooltip"></div>
+
+          <!--=========================
+                BIỂU ĐỒ TRÒN
+        ==========================-->
+
+          <div class="hop-bieu-do">
+            <div class="tieu-de-bieu-do">
+              <div class="trai-tieu-de-bieu-do">
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <div>
+                  <h3>PHÂN BỐ MỨC ĐIỂM DỰ ĐOÁN</h3>
+                  <p>Phân bố điểm dự đoán theo từng mức</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="than-bieu-do">
+              <div class="bieu-do-tron">
+                <div class="vong-tron-wrapper">
+                  <div id="vong-tron-bieu-do">
+                    <div class="noi-dung-giua-bieu-do">
+                      <span>TỔNG TÍN CHỈ</span>
+                      <strong id="tong-tin-chi-bieu-do">0</strong>
+                      <small>tín chỉ</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chu-thich-bieu-do">
+                  <div class="muc-chu-thich">
+                    <span class="mau-a"></span>
+
+                    <div class="noi-dung-chu-thich">
+                      <div class="dong-chinh">
+                        <strong>A</strong>
+                        <span>(8.5 - 10)</span>
+                      </div>
+
+                      <div class="dong-phu">
+                        <span class="phan-tram">0%</span>
+                        <span class="tin-chi">(0 tín chỉ)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="muc-chu-thich">
+                    <span class="mau-b"></span>
+
+                    <div class="noi-dung-chu-thich">
+                      <div class="dong-chinh">
+                        <strong>B</strong>
+                        <span>(7.0 - 8.4)</span>
+                      </div>
+
+                      <div class="dong-phu">
+                        <span class="phan-tram">0%</span>
+                        <span class="tin-chi">(0 tín chỉ)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="muc-chu-thich">
+                    <span class="mau-c"></span>
+
+                    <div class="noi-dung-chu-thich">
+                      <div class="dong-chinh">
+                        <strong>C</strong>
+                        <span>(5.5 - 6.9)</span>
+                      </div>
+
+                      <div class="dong-phu">
+                        <span class="phan-tram">0%</span>
+                        <span class="tin-chi">(0 tín chỉ)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="muc-chu-thich">
+                    <span class="mau-d"></span>
+
+                    <div class="noi-dung-chu-thich">
+                      <div class="dong-chinh">
+                        <strong>D</strong>
+                        <span>(4.0 - 5.4)</span>
+                      </div>
+
+                      <div class="dong-phu">
+                        <span class="phan-tram">0%</span>
+                        <span class="tin-chi">(0 tín chỉ)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="muc-chu-thich">
+                    <span class="mau-f"></span>
+
+                    <div class="noi-dung-chu-thich">
+                      <div class="dong-chinh">
+                        <strong>F</strong>
+                        <span>(0 - 3.9)</span>
+                      </div>
+
+                      <div class="dong-phu">
+                        <span class="phan-tram">0%</span>
+                        <span class="tin-chi">(0 tín chỉ)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--NHẬN XÉT VÀ GỢI Ý-->
+
+        <div class="khu-nhan-xet-goi-y">
+          <!--=========================================
+                NHẬN XÉT
+    ==========================================-->
+
+          <div class="the-nhan-xet">
+            <div class="tieu-de-the-nhan-xet">
+              <div class="bieu-tuong-nhan-xet">
+                <i class="fa-solid fa-clipboard-check"></i>
+              </div>
+
+              <div>
+                <h3>Hệ thống nhận định</h3>
+
+                <p>Đánh giá kết quả dự đoán</p>
+              </div>
+            </div>
+
+            <div class="noi-dung-nhan-xet">
+              <ul id="danh-sach-nhan-xet">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  GPA học kỳ dự kiến đạt <strong>3.28</strong>, tăng
+                  <strong>0.18</strong> so với học kỳ trước.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Có khả năng đạt xếp loại
+                  <strong>Khá</strong>.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Điểm các học phần khá đồng đều, chưa có môn có nguy cơ trượt.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Kết quả dự đoán cho thấy tiến độ học tập ổn định.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!--=========================================
+                GỢI Ý
+    ==========================================-->
+
+          <div class="the-goi-y">
+            <div class="tieu-de-the-goi-y">
+              <div class="bieu-tuong-goi-y">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+
+              <div>
+                <h3>Gợi ý cải thiện</h3>
+
+                <p>Đề xuất giúp nâng cao kết quả học tập</p>
+              </div>
+            </div>
+
+            <div class="noi-dung-goi-y">
+              <ul id="danh-sach-goi-y">
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Duy trì tỷ lệ chuyên cần trên <strong>95%</strong>.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Hoàn thành đầy đủ bài tập trước mỗi buổi học.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Dành ít nhất <strong>2 giờ</strong> tự học mỗi ngày.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Ôn tập sớm các học phần có điểm dự đoán thấp.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../../Assets/JavaScript/Pages/Sinh-vien/Du_doan_ket_qua/Du-doan-diem-HK.js"></script>
+  <script src="../../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

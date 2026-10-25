@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link rel="stylesheet" href="../../Assets/Css/Pages/Sinh-vien/Home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="#"
+              >DỰ ĐOÁN KẾT QUẢ
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="menu-con">
+              <li class="lua-chon-3-1">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HP.html"
+                  >Dự đoán điểm trung bình học phần</a
+                >
+              </li>
+              <li class="lua-chon-3-2">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HK.html"
+                  >Dự đoán GPA của học kỳ</a
+                >
+              </li>
+              <li class="lua-chon-3-3">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_GPA_HK_sau.html"
+                  >Dự đoán GPA học kỳ tiếp theo</a
+                >
+              </li>
+              <li class="lua-chon-3-4">
+                <a
+                  href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_GPA_ky_vong.html"
+                  >Dự đoán điểm GPA tốt nghiệp kỳ vọng</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-3">
+            <a href="./Ho-tro-hoc-tap.html">HỖ TRỢ HỌC TẬP </a>
+          </li>-->
+
+          <li class="lua-chon-4">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar"></div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="banner">
+        <div class="hop-banner">
+          <img src="../../Assets/Images/Banners/banner1.jpg" alt="banner 1" />
+          <img src="../../Assets/Images/Banners/banner2.jpg" alt="banner 2" />
+          <img src="../../Assets/Images/Banners/banner3.jpg" alt="banner 3" />
+          <img src="../../Assets/Images/Banners/banner4.jpg" alt="banner 4" />
+          <img src="../../Assets/Images/Banners/banner5.jpg" alt="banner 5" />
+        </div>
+
+        <button class="mui-ten ben-trai">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button class="mui-ten ben-phai">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="hinh-tron">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+          <span class="dot" data-index="3"></span>
+          <span class="dot" data-index="4"></span>
+        </div>
+      </div>
+
+      <section class="noi-dung-trang-chu">
+        <!-- Cột trái -->
+        <aside class="cot-trai">
+          <div class="thong-tin-sinh-vien">
+            <div class="avatar-sv"></div>
+
+            <h3>Chu Tuấn Tú</h3>
+
+            <span class="ma-sv"> 24D0043CNT </span>
+
+            <div class="ds-thong-tin">
+              <div>
+                <i class="fa-solid fa-users"></i>
+                <span>Lớp</span>
+                <strong>CNTT K24</strong>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Ngành</span>
+                <strong>Công nghệ thông tin</strong>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Niên khóa</span>
+                <strong>2024 - 2028</strong>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Khoa</span>
+                <strong>Ngoại ngữ - Tin học</strong>
+              </div>
+
+              <div>
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Trạng thái</span>
+                <strong class="dang-hoc"> Đang học </strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Cột phải -->
+        <section class="cot-phai">
+          <div class="vung-the-tinh-nang">
+            <a
+              href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HP.html"
+              class="the-tinh-nang lan1"
+            >
+              <div class="tieu-de-the xanh">
+                <i class="fa-solid fa-square-poll-horizontal"></i>
+                <h3>Dự đoán điểm học phần</h3>
+              </div>
+
+              <div class="noi-dung-the">
+                <p>
+                  Dự đoán điểm số của từng học phần dựa trên dữ liệu đầu vào.
+                </p>
+              </div>
+
+              <i class="fa-solid fa-arrow-right mui-ten-the"></i>
+            </a>
+
+            <a
+              href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HK.html"
+              class="the-tinh-nang lan2"
+            >
+              <div class="tieu-de-the duong">
+                <i class="fa-solid fa-chart-column"></i>
+                <h3>Dự đoán điểm học kỳ</h3>
+              </div>
+
+              <div class="noi-dung-the">
+                <p>
+                  Dự đoán điểm trung bình học kỳ từ các học phần đã đăng ký.
+                </p>
+              </div>
+
+              <i class="fa-solid fa-arrow-right mui-ten-the"></i>
+            </a>
+
+            <a
+              href="../Sinh-vien/Du_doan_ket_qua/Du_doan_GPA_HK_sau.html"
+              class="the-tinh-nang lan3"
+            >
+              <div class="tieu-de-the tim">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Dự đoán GPA học kỳ tiếp theo</h3>
+              </div>
+
+              <div class="noi-dung-the">
+                <p>Ước lượng GPA của học kỳ kế tiếp và xu hướng tăng trưởng.</p>
+              </div>
+
+              <i class="fa-solid fa-arrow-right mui-ten-the"></i>
+            </a>
+
+            <a
+              href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_GPA_ky_vong.html"
+              class="the-tinh-nang lan4"
+            >
+              <div class="tieu-de-the vang">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Dự đoán GPA kỳ vọng</h3>
+              </div>
+
+              <div class="noi-dung-the">
+                <p>Tính toán GPA cần đạt để hoàn thành mục tiêu tốt nghiệp.</p>
+              </div>
+
+              <i class="fa-solid fa-arrow-right mui-ten-the"></i>
+            </a>
+          </div>
+
+          <!-- ================= BIỂU ĐỒ ================= -->
+
+          <div class="vung-bieu-do">
+            <!-- Xu hướng GPA -->
+
+            <div class="khung-bieu-do">
+              <div class="tieu-de-bieu-do">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Xu hướng GPA qua các học kỳ</span>
+              </div>
+
+              <svg id="gpa-chart"></svg>
+            </div>
+
+            <!-- Radar -->
+
+            <div class="khung-bieu-do">
+              <div class="tieu-de-bieu-do">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Dự đoán tỷ lệ xếp loại tốt nghiệp</span>
+              </div>
+
+              <div class="radar-wrapper">
+                <svg id="radar-chart"></svg>
+
+                <div class="chu-thich-radar">
+                  <div>
+                    <span class="mau xs"></span>Xuất sắc
+                    <strong id="xs-value"></strong>
+                  </div>
+
+                  <div>
+                    <span class="mau gioi"></span>Giỏi
+                    <strong id="gioi-value"></strong>
+                  </div>
+
+                  <div>
+                    <span class="mau kha"></span>Khá
+                    <strong id="kha-value"></strong>
+                  </div>
+
+                  <div>
+                    <span class="mau tb"></span>Trung bình
+                    <strong id="tb-value"></strong>
+                  </div>
+
+                  <div>
+                    <span class="mau yeu"></span>Yếu
+                    <strong id="yeu-value"></strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ================= nhận đinh-giợi ý-thống kê ================= -->
+      <section class="hang-duoi">
+        <!-- NHẬN ĐỊNH -->
+        <div class="khung-duoi nhan-dinh-he-thong">
+          <h3>
+            <i class="fa-solid fa-circle-check"></i>
+            Nhận định từ hệ thống
+          </h3>
+
+          <ul class="nhan-dinh"></ul>
+        </div>
+
+        <!-- GỢI Ý -->
+        <div class="khung-duoi goi-y-hoc-tap">
+          <h3>
+            <i class="fa-solid fa-lightbulb"></i>
+
+            Gợi ý học tập
+          </h3>
+
+          <div class="goi-y">
+            <div class="nen-hoc">
+              <ul></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Sinh-vien/Home.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

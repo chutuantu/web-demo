@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../Assets/Css/Pages/Giang-vien/canh-bao-nguy-co.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Cảnh báo nguy cơ học tập</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="./danh-sach-sinh-vien.html">DANH SÁCH SINH VIÊN </a>
+          </li>
+
+          <li class="lua-chon lua-chon-3">
+            <a href="./canh-bao-nguy-co.html">CẢNH BÁO NGUY CƠ </a>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-4">
+            <a href="./tai-lieu.html">TÀI LIỆU </a>
+          </li>-->
+
+          <li class="lua-chon-6">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar"></div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!--MAIN -->
+    <main class="bao-cao-page">
+      <section class="stat-grid">
+        <article class="stat-card soft-pink">
+          <div>
+            <div class="card-icon pink">
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 id="tong-sinh-vien-nguy-co">0</h3>
+            <p>Tổng sinh viên</p>
+          </div>
+        </article>
+
+        <article class="stat-card soft-yellow">
+          <div>
+            <div class="card-icon yellow">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 id="nguy-co-cao">0</h3>
+            <p>Nguy cơ cao</p>
+          </div>
+        </article>
+
+        <article class="stat-card soft-olive">
+          <div>
+            <div class="card-icon olive">
+              <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 id="nguy-co-trung-binh">0</h3>
+            <p>Nguy cơ trung bình</p>
+          </div>
+        </article>
+
+        <article class="stat-card soft-green">
+          <div>
+            <div class="card-icon green">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 id="nguy-co-thap">0</h3>
+            <p>Nguy cơ thấp</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="analytics-grid">
+        <article class="panel donut-panel">
+          <div class="panel-header">
+            <h2>Phân bổ mức độ nguy cơ</h2>
+          </div>
+
+          <div class="donut-wrap">
+            <div class="chart-donut" id="chart-donut-nguy-co">
+              <div class="donut-inner">
+                <span class="donut-total" id="donut-tong"
+                  >0<br /><small>Tổng số</small></span
+                >
+              </div>
+            </div>
+
+            <div class="legend">
+              <div class="legend-item">
+                <span class="dot red"></span>
+                <span class="legend-text">
+                  <strong>Nguy cơ cao</strong>
+                  <span class="legend-count" id="legend-nguy-co-cao"
+                    >0 (0%)</span
+                  >
+                </span>
+              </div>
+              <div class="legend-item">
+                <span class="dot yellow"></span>
+                <span class="legend-text">
+                  <strong>Nguy cơ trung bình</strong>
+                  <span class="legend-count" id="legend-nguy-co-trung-binh"
+                    >0 (0%)</span
+                  >
+                </span>
+              </div>
+              <div class="legend-item">
+                <span class="dot green"></span>
+                <span class="legend-text">
+                  <strong>Nguy cơ thấp</strong>
+                  <span class="legend-count" id="legend-nguy-co-thap">
+                    0 (0%)
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel trend-panel">
+          <div class="panel-header">
+            <h2>Xu hướng sinh viên nguy cơ cao</h2>
+          </div>
+
+          <div class="trend-chart">
+            <svg
+              id="bieu-do-xu-huong-nguy-co"
+              viewBox="0 0 380 180"
+              aria-label="line chart"
+            >
+              <g class="grid-lines">
+                <line x1="20" y1="20" x2="360" y2="20"></line>
+                <line x1="20" y1="60" x2="360" y2="60"></line>
+                <line x1="20" y1="100" x2="360" y2="100"></line>
+                <line x1="20" y1="140" x2="360" y2="140"></line>
+              </g>
+              <polyline
+                points="35,135 80,120 130,125 178,115 225,108 265,85 315,70 348,65"
+              />
+              <g class="dots">
+                <circle cx="35" cy="135" r="5"></circle>
+                <circle cx="80" cy="120" r="5"></circle>
+                <circle cx="130" cy="125" r="5"></circle>
+                <circle cx="178" cy="115" r="5"></circle>
+                <circle cx="225" cy="108" r="5"></circle>
+                <circle cx="265" cy="85" r="5"></circle>
+                <circle cx="315" cy="70" r="5"></circle>
+                <circle cx="348" cy="65" r="5"></circle>
+              </g>
+              <g class="x-labels">
+                <text x="34" y="170">HK1</text>
+                <text x="83" y="170">HK2</text>
+                <text x="128" y="170">HK1</text>
+                <text x="175" y="170">HK2</text>
+                <text x="224" y="170">HK Hè</text>
+                <text x="270" y="170">HK2</text>
+                <text x="320" y="170"></text>
+              </g>
+              <g class="y-labels">
+                <text x="10" y="145">0</text>
+                <text x="10" y="105">10</text>
+                <text x="10" y="65">20</text>
+                <text x="10" y="25">30</text>
+              </g>
+            </svg>
+            <div class="chart-note">
+              <span class="note-dot"></span>
+              <span>Số sinh viên nguy cơ cao</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="panel risk-panel">
+          <div class="panel-header">
+            <h2>Nguyên nhân phổ biến</h2>
+          </div>
+
+          <div class="risk-list" id="danh-sach-nguyen-nhan">
+            <div class="risk-row">
+              <div class="risk-label">
+                <span>Điểm chuyên cần thấp</span>
+                <span class="risk-percent">45%</span>
+              </div>
+              <div class="bar">
+                <i
+                  style="
+                    width: 45%;
+                    background: linear-gradient(90deg, #e85d5d, #e85d5d);
+                  "
+                ></i>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-label">
+                <span>Kết quả học tập giảm sút</span>
+                <span class="risk-percent">30%</span>
+              </div>
+              <div class="bar">
+                <i
+                  style="
+                    width: 30%;
+                    background: linear-gradient(90deg, #f4b84d, #f4b84d);
+                  "
+                ></i>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-label">
+                <span>Thiếu tương tác</span>
+                <span class="risk-percent">15%</span>
+              </div>
+              <div class="bar">
+                <i
+                  style="
+                    width: 15%;
+                    background: linear-gradient(90deg, #f4b84d, #f4b84d);
+                  "
+                ></i>
+              </div>
+            </div>
+            <div class="risk-row">
+              <div class="risk-label">
+                <span>Khác</span>
+                <span class="risk-percent">10%</span>
+              </div>
+              <div class="bar">
+                <i
+                  style="
+                    width: 10%;
+                    background: linear-gradient(90deg, #48b86a, #48b86a);
+                  "
+                ></i>
+              </div>
+            </div>
+          </div>
+          <div class="update-timestamp">
+            <i class="fa-solid fa-arrow-rotate-right"></i>
+            <span id="cap-nhat-canh-bao-nguy-co"> Đang cập nhật... </span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="report-grid">
+        <article class="panel table-panel">
+          <div class="table-head">
+            <h2>Danh sách sinh viên có nguy cơ</h2>
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="tim-kiem-canh-bao"
+                placeholder="Tìm kiếm sinh viên..."
+              />
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Sinh viên</th>
+                <th>Lớp</th>
+                <th>Mức độ nguy cơ</th>
+                <th>GPA học kỳ</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-canh-bao-nguy-co">
+              <tr>
+                <td>1</td>
+                <td>
+                  <div class="student-cell">
+                    <span class="avatar red">T</span>
+                    <div>
+                      <strong>Trần Minh Đức</strong><small>SV202110001</small>
+                    </div>
+                  </div>
+                </td>
+                <td>CNTT201</td>
+                <td><span class="level level-red">Cao</span></td>
+                <td>1.45</td>
+                <td>
+                  <div class="action-icons">
+                    <button
+                      type="button"
+                      class="nut-xem-chi-tiet-canh-bao"
+                      data-id="..."
+                      title="Xem chi tiết"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <div class="student-cell">
+                    <span class="avatar orange">L</span>
+                    <div>
+                      <strong>Lê Thị Phương</strong><small>SV202110045</small>
+                    </div>
+                  </div>
+                </td>
+                <td>CNTT201</td>
+                <td><span class="level level-red">Cao</span></td>
+                <td>1.62</td>
+                <td>
+                  <div class="action-icons">
+                    <button
+                      type="button"
+                      class="nut-xem-chi-tiet-canh-bao"
+                      data-id="..."
+                      title="Xem chi tiết"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <div class="student-cell">
+                    <span class="avatar blue">N</span>
+                    <div>
+                      <strong>Nguyễn Hoàng Nam</strong
+                      ><small>SV202110078</small>
+                    </div>
+                  </div>
+                </td>
+                <td>CSDL201</td>
+                <td><span class="level level-yellow">Trung bình</span></td>
+                <td>2.18</td>
+                <td>
+                  <div class="action-icons">
+                    <button
+                      type="button"
+                      class="nut-xem-chi-tiet-canh-bao"
+                      data-id="..."
+                      title="Xem chi tiết"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>
+                  <div class="student-cell">
+                    <span class="avatar green">P</span>
+                    <div>
+                      <strong>Phạm Quang Huy</strong><small>SV202110112</small>
+                    </div>
+                  </div>
+                </td>
+                <td>CTDL201</td>
+                <td><span class="level level-yellow">Trung bình</span></td>
+                <td>2.32</td>
+                <td>
+                  <div class="action-icons">
+                    <button
+                      type="button"
+                      class="nut-xem-chi-tiet-canh-bao"
+                      data-id="..."
+                      title="Xem chi tiết"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>
+                  <div class="student-cell">
+                    <span class="avatar purple">Đ</span>
+                    <div>
+                      <strong>Đỗ Thị Mai</strong><small>SV202110156</small>
+                    </div>
+                  </div>
+                </td>
+                <td>MATH101</td>
+                <td><span class="level level-yellow">Trung bình</span></td>
+                <td>2.45</td>
+                <td>
+                  <div class="action-icons">
+                    <button
+                      type="button"
+                      class="nut-xem-chi-tiet-canh-bao"
+                      data-id="..."
+                      title="Xem chi tiết"
+                    >
+                      <i class="fa-solid fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination" id="phan-trang-canh-bao">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">›</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!--FOOTER-->
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Giang-vien/canh-bao-nguy-co.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

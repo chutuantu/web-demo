@@ -1,0 +1,610 @@
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../Assets/Css/Pages/Sinh-vien/Ho-tro-hoc-tap.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Hỗ trợ học tập</title>
+  </head>
+  <body>
+    <!-- =====================================================
+     MODAL CHUNG
+===================================================== -->
+    <div class="modal-chung" id="modal-chung" aria-hidden="true">
+      <div class="lop-phu-modal" id="lop-phu-modal"></div>
+
+      <div class="khung-modal" role="dialog" aria-modal="true">
+        <button
+          type="button"
+          class="nut-dong-modal"
+          id="nut-dong-modal"
+          aria-label="Đóng"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="noi-dung-modal" id="noi-dung-modal">
+          <!-- Nội dung được JavaScript đưa vào -->
+        </div>
+      </div>
+    </div>
+
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="#"
+              >DỰ ĐOÁN KẾT QUẢ
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="menu-con">
+              <li class="lua-chon-3-1">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HP.html"
+                  >Dự đoán điểm trung bình học phần</a
+                >
+              </li>
+              <li class="lua-chon-3-2">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_HK.html"
+                  >Dự đoán GPA của học kỳ</a
+                >
+              </li>
+              <li class="lua-chon-3-3">
+                <a href="../Sinh-vien/Du_doan_ket_qua/Du_doan_GPA_HK_sau.html"
+                  >Dự đoán GPA học kỳ tiếp theo</a
+                >
+              </li>
+              <li class="lua-chon-3-4">
+                <a
+                  href="../Sinh-vien/Du_doan_ket_qua/Du_doan_diem_GPA_ky_vong.html"
+                  >Dự đoán điểm GPA tốt nghiệp kỳ vọng</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <li class="lua-chon lua-chon-3">
+            <a href="./Ho-tro-hoc-tap.html">HỖ TRỢ HỌC TẬP </a>
+          </li>
+
+          <li class="lua-chon-4">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar">
+          </div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================
+         PHẦN 1: THANH THỐNG KÊ
+    ====================================================== -->
+
+      <section class="thanh-thong-ke">
+        <div class="khung-thong-ke">
+          <!-- Ô 1: TÀI LIỆU -->
+          <div class="o-thong-ke">
+            <div class="bieu-tuong-thong-ke">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="noi-dung-thong-ke">
+              <div class="so-lieu-thong-ke tong-tai-lieu">128</div>
+
+              <div class="ten-thong-ke">Tài liệu</div>
+            </div>
+          </div>
+
+          <!-- Ô 2: VIDEO -->
+          <div class="o-thong-ke">
+            <div class="bieu-tuong-thong-ke">
+              <i class="fa-solid fa-circle-play"></i>
+            </div>
+
+            <div class="noi-dung-thong-ke">
+              <div class="so-lieu-thong-ke tong-video">65</div>
+
+              <div class="ten-thong-ke">Video bài giảng</div>
+            </div>
+          </div>
+
+          <!-- Ô 3: WEBSITE -->
+          <div class="o-thong-ke">
+            <div class="bieu-tuong-thong-ke">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <div class="noi-dung-thong-ke">
+              <div class="so-lieu-thong-ke tong-website">32</div>
+
+              <div class="ten-thong-ke">Website tham khảo</div>
+            </div>
+          </div>
+
+          <!-- Ô 4: TÀI NGUYÊN NỔI BẬT -->
+          <div class="o-thong-ke">
+            <div class="bieu-tuong-thong-ke">
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="noi-dung-thong-ke">
+              <div class="so-lieu-thong-ke tong-tai-nguyen-noi-bat">225</div>
+
+              <div class="ten-thong-ke">Tài nguyên nổi bật</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+     PHẦN 2: THANH TÌM KIẾM VÀ BỘ LỌC
+====================================================== -->
+
+      <section class="khu-vuc-tim-kiem">
+        <div class="thanh-tim-kiem">
+          <!-- Ô tìm kiếm -->
+          <div class="o-tim-kiem">
+            <i class="fa-solid fa-magnifying-glass bieu-tuong-tim-kiem"></i>
+
+            <input
+              type="text"
+              id="o-nhap-tim-kiem"
+              class="o-nhap-tim-kiem"
+              placeholder="Tìm kiếm tài liệu, video, website, môn học..."
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Nút tìm kiếm -->
+          <button type="button" id="nut-tim-kiem" class="nut-tim-kiem">
+            Tìm kiếm
+          </button>
+
+          <!-- Bộ lọc loại tài nguyên -->
+          <div class="bo-loc">
+            <button type="button" class="nut-bo-loc" data-bo-loc="loai">
+              <span class="noi-dung-bo-loc">
+                <i class="fa-solid fa-border-all"></i>
+
+                <span class="ten-bo-loc"> Tất cả loại </span>
+              </span>
+
+              <i class="fa-solid fa-chevron-down mui-ten-bo-loc"></i>
+            </button>
+
+            <div class="danh-sach-lua-chon">
+              <div class="lua-chon-bo-loc" data-gia-tri="tat-ca">
+                Tất cả loại
+              </div>
+
+              <div class="lua-chon-bo-loc" data-gia-tri="tai-lieu">
+                Tài liệu
+              </div>
+
+              <div class="lua-chon-bo-loc" data-gia-tri="video">
+                Video bài giảng
+              </div>
+
+              <div class="lua-chon-bo-loc" data-gia-tri="website">
+                Website tham khảo
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+     KHU VỰC NỘI DUNG CHÍNH
+     TỪ PHẦN 3 ĐẾN PHẦN 7
+====================================================== -->
+
+      <div class="khu-vuc-noi-dung">
+        <!-- =================================================
+         CỘT TRÁI
+    ================================================== -->
+
+        <div class="cot-trai">
+          <!-- =============================================
+             PHẦN 3: TÀI LIỆU MÔN HỌC
+        ============================================== -->
+
+          <section class="khu-vuc-tai-lieu">
+            <!-- Tiêu đề -->
+            <div class="tieu-de-khu-vuc">
+              <div class="tieu-de-ben-trai">
+                <i class="fa-regular fa-file-lines"></i>
+
+                <h2>TÀI LIỆU MÔN HỌC</h2>
+              </div>
+
+              <button
+                type="button"
+                class="nut-xem-tat-ca"
+                id="nut-xem-tat-ca-tai-lieu"
+              >
+                Xem tất cả
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Danh sách tài liệu -->
+            <div class="khung-danh-sach-tai-lieu">
+              <!-- Nút chuyển tài liệu -->
+              <button
+                type="button"
+                class="nut-chuyen-tai-lieu nut-tai-lieu-trai"
+                id="nut-tai-lieu-trai"
+                aria-label="Xem tài liệu trước"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <div class="danh-sach-tai-lieu" id="danh-sach-tai-lieu">
+                <!-- =================================
+                         TÀI LIỆU 1
+                    ================================== -->
+
+                <article
+                  class="the-tai-lieu"
+                  data-loai="tai-lieu"
+                  data-url="files/co-so-du-lieu.pdf"
+                  data-ngay="2026-08-15"
+                >
+                  <!-- Hình tài liệu -->
+                  <div class="hinh-tai-lieu">
+                    <span class="nhan-dang-tai-lieu pdf"> PDF </span>
+
+                    <div class="minh-hoa-tai-lieu co-so-du-lieu">
+                      <i class="fa-solid fa-database"></i>
+
+                      <i class="fa-solid fa-book"></i>
+                    </div>
+                  </div>
+
+                  <!-- Nội dung -->
+                  <div class="noi-dung-tai-lieu">
+                    <h3 class="ten-tai-lieu">Giáo trình Cơ sở dữ liệu</h3>
+
+                    <p class="mon-hoc-tai-lieu">Cơ sở dữ liệu</p>
+
+                    <div class="thong-tin-tai-lieu">
+
+                      <span class="ngay-tai-lieu">
+                        <i class="fa-regular fa-calendar"></i>
+                        15/08/2026
+                      </span>
+                    </div>
+
+                    <div class="hanh-dong-tai-lieu">
+                      <button type="button" class="nut-tai-lieu xem">
+                        <i class="fa-regular fa-eye"></i>
+                        Xem
+                      </button>
+
+                      <button type="button" class="nut-tai-lieu tai">
+                        <i class="fa-solid fa-download"></i>
+                        Tải
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Nút chuyển tài liệu -->
+              <button
+                type="button"
+                class="nut-chuyen-tai-lieu nut-tai-lieu-phai"
+                id="nut-tai-lieu-phai"
+                aria-label="Xem tài liệu tiếp theo"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- =============================================
+     PHẦN 4: VIDEO BÀI GIẢNG
+============================================== -->
+
+          <section class="khu-vuc-video">
+            <!-- Tiêu đề -->
+            <div class="tieu-de-khu-vuc">
+              <div class="tieu-de-ben-trai">
+                <i class="fa-solid fa-video"></i>
+
+                <h2>VIDEO BÀI GIẢNG</h2>
+              </div>
+
+              <button
+                type="button"
+                class="nut-xem-tat-ca"
+                id="nut-xem-tat-ca-video"
+              >
+                Xem tất cả
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Danh sách video -->
+            <div class="khung-danh-sach-video">
+              <button
+                type="button"
+                class="nut-chuyen-video nut-video-trai"
+                id="nut-video-trai"
+                aria-label="Xem video trước"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <div class="danh-sach-video" id="danh-sach-video">
+                <!-- =====================================
+                 VIDEO 1
+            ====================================== -->
+
+                <article
+                  class="the-video"
+                  data-loai="video"
+                  data-url="videos/a.mp4"
+                  data-ngay="2026-08-16"
+                >
+                  <div class="hinh-video sql-server">
+                    <div class="nen-video">
+                    </div>
+
+                    <!-- Nút play -->
+
+                    <button
+                      type="button"
+                      class="nut-phat-video"
+                      aria-label="Phát video"
+                    >
+                      <i class="fa-solid fa-play"></i>
+                    </button>
+
+                    <!-- Thời lượng -->
+
+                    <span class="thoi-luong-video"> 28:15 </span>
+                  </div>
+
+                  <div class="noi-dung-video">
+                    <h3 class="ten-video">SQL Server cơ bản - Buổi 1</h3>
+
+                    <p class="mon-hoc-video">Cơ sở dữ liệu</p>
+
+                    <div class="thong-tin-video">
+                      <span class="luot-xem-video">
+                        <i class="fa-regular fa-eye"></i>
+                        2.3K
+                      </span>
+
+                      <span class="ngay-video">
+                        <i class="fa-regular fa-calendar"></i>
+                        16/08/2026
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Nút chuyển video -->
+
+              <!-- Nút chuyển video -->
+
+              <button
+                type="button"
+                class="nut-chuyen-video nut-video-phai"
+                id="nut-video-phai"
+                aria-label="Xem video tiếp theo"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- =============================================
+     PHẦN 5: WEBSITE THAM KHẢO
+============================================== -->
+
+          <section class="khu-vuc-website">
+            <!-- Tiêu đề -->
+            <div class="tieu-de-khu-vuc">
+              <div class="tieu-de-ben-trai">
+                <i class="fa-solid fa-globe"></i>
+
+                <h2>WEBSITE THAM KHẢO</h2>
+              </div>
+
+              <button
+                type="button"
+                class="nut-xem-tat-ca"
+                id="nut-xem-tat-ca-website"
+              >
+                Xem tất cả
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Danh sách website -->
+            <div class="khung-danh-sach-website">
+              <button
+                type="button"
+                class="nut-chuyen-website nut-website-trai"
+                id="nut-website-trai"
+                aria-label="Xem website trước"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <div class="danh-sach-website" id="danh-sach-website">
+                <!-- =====================================
+                 WEBSITE 1
+            ====================================== -->
+
+                <article
+                  class="the-website"
+                  data-loai="website"
+                  data-url="https://www.w3schools.com/"
+                  data-ngay="2026-08-14"
+                >
+                  <div class="logo-website w3schools">
+                    <span class="w3-chu"> W </span>
+
+                    <sup> 3 </sup>
+                  </div>
+
+                  <div class="noi-dung-website">
+                    <h3 class="ten-website">W3Schools</h3>
+
+                    <p class="mo-ta-website">Học HTML, CSS, JS, SQL...</p>
+
+                    <div class="thong-tin-website">
+                      <span class="ngay-website">
+                        <i class="fa-regular fa-calendar"></i>
+                        14/08/2026
+                      </span>
+
+                      <button type="button" class="nut-truy-cap-website">
+                        Truy cập
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Nút chuyển website -->
+
+              <!-- Nút chuyển website -->
+
+              <button
+                type="button"
+                class="nut-chuyen-website nut-website-phai"
+                id="nut-website-phai"
+                aria-label="Xem website tiếp theo"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>support@edupredict.ai</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0123 456 789</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học Công nghệ Thông tin</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <li>
+              <a href="#">Hỗ trợ học tập</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Sinh-vien/Ho-tro-hoc-tap.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

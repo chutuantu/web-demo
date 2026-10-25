@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../../Assets/Css/Pages/Sinh-vien/Du_doan_ket_qua/Du-doan-diem-HK-sau.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Dự đoán điểm trung bình học kỳ</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="../Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="#"
+              >DỰ ĐOÁN KẾT QUẢ
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="menu-con">
+              <li class="lua-chon-3-1">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_HP.html"
+                  >Dự đoán điểm trung bình học phần</a
+                >
+              </li>
+              <li class="lua-chon-3-2">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_HK.html"
+                  >Dự đoán GPA của học kỳ</a
+                >
+              </li>
+              <li class="lua-chon-3-3">
+                <a href="../Du_doan_ket_qua/Du_doan_GPA_HK_sau.html"
+                  >Dự đoán GPA học kỳ tiếp theo</a
+                >
+              </li>
+              <li class="lua-chon-3-4">
+                <a href="../Du_doan_ket_qua/Du_doan_diem_GPA_ky_vong.html"
+                  >Dự đoán điểm GPA tốt nghiệp kỳ vọng</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-3">
+            <a href="../Ho-tro-hoc-tap.html">HỖ TRỢ HỌC TẬP </a>
+          </li>-->
+
+          <li class="lua-chon-4">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar">
+          </div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="khung tren">
+        <!--GPA HỌC KỲ TRƯỚC-->
+        <section class="khoi-gpa-hoc-ky-truoc">
+          <div class="tieu-de-khoi">
+            <div class="bieu-tuong-tieu-de">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <h2>GPA CÁC HỌC KỲ TRƯỚC</h2>
+          </div>
+
+          <div class="noi-dung-khoi">
+            <div class="nhom-o-nhap">
+              <label class="nhan-o-nhap">
+                Chọn học kỳ gần nhất đã hoàn thành
+              </label>
+
+              <select id="chon-hoc-ky-gan-nhat">
+                <option>HK1 (Học kỳ 1)</option>
+                <option>HK2 (Học kỳ 2)</option>
+                <option>HK3 (Học kỳ 3)</option>
+                <option>HK4 (Học kỳ 4)</option>
+                <option>HK5 (Học kỳ 5)</option>
+                <option>HK6 (Học kỳ 6)</option>
+                <option>HK7 (Học kỳ 7)</option>
+                <option>HK8 (Học kỳ 8)</option>
+              </select>
+            </div>
+
+            <label class="nhan-o-nhap lon">
+              Nhập GPA của các học kỳ đã hoàn thành
+            </label>
+
+            <div class="danh-sach-gpa">
+              <div class="o-gpa">
+                <span>HK1</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK2</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK3</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK4</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK5</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK6</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK7</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+
+              <div class="o-gpa">
+                <span>HK8</span>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="4"
+                  step="0.01"
+                  placeholder="--"
+                />
+                <small class="loi-gpa"></small>
+              </div>
+            </div>
+
+            <div class="khung-huong-dan">
+              <div class="icon-huong-dan">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+
+              <div>
+                <strong>Nhập GPA theo thang 4.0 (0.00 - 4.00)</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--kế hoạch học kỳ tới-->
+        <section class="khoi-ke-hoach-hoc-ky">
+          <div class="tieu-de-khoi">
+            <div class="bieu-tuong-tieu-de">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+
+            <h2>KẾ HOẠCH HỌC KỲ TỚI</h2>
+          </div>
+
+          <div class="noi-dung-ke-hoach">
+            <div class="cot-ke-hoach">
+              <!-- Tổng tín chỉ -->
+
+              <div class="nhom-o-nhap">
+                <label>Tổng số tín chỉ đăng ký kỳ tới</label>
+
+                <div class="o-icon">
+                  <div class="icon-input mau-tim">
+                    <i class="fa-solid fa-book-open"></i>
+                  </div>
+
+                  <input
+                    id="tong-tin-chi"
+                    type="number"
+                    min="1"
+                    max="30"
+                    step="1"
+                    value="--"
+                    placeholder="--"
+                  />
+
+                  <span>tín chỉ</span>
+                </div>
+                <small class="loi-ke-hoach"></small>
+              </div>
+
+              <!-- Thời gian tự học -->
+
+              <div class="nhom-o-nhap">
+                <label>Thời gian tự học mỗi tuần</label>
+
+                <div class="o-icon">
+                  <div class="icon-input mau-xanhduong">
+                    <i class="fa-regular fa-clock"></i>
+                  </div>
+
+                  <input
+                    id="gio-tu-hoc"
+                    type="number"
+                    min="0"
+                    max="168"
+                    step="1"
+                    value="--"
+                    placeholder="--"
+                  />
+
+                  <span>giờ/tuần</span>
+                </div>
+                <small class="loi-ke-hoach"></small>
+              </div>
+            </div>
+
+            <div class="cot-ke-hoach">
+              <!-- Chuyên cần -->
+
+              <div class="nhom-o-nhap">
+                <label>Tỷ lệ chuyên cần dự kiến</label>
+
+                <div class="thanh-truot">
+                  <div class="icon-input mau-xanhla">
+                    <i class="fa-solid fa-user-check"></i>
+                  </div>
+
+                  <div class="ty-le-cc-va-so">
+                    <input
+                      id="ty-le-chuyen-can"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                    />
+
+                    <div class="moc-thang">
+                      <span>0%</span>
+                      <span>50%</span>
+                      <span>100%</span>
+                    </div>
+                  </div>
+
+                  <div id="phan-tram-chuyen-can">0</div>
+                </div>
+              </div>
+
+              <!-- Làm thêm -->
+
+              <div class="nhom-o-nhap">
+                <label>Số giờ làm thêm mỗi tuần</label>
+
+                <div class="o-icon">
+                  <div class="icon-input mau-cam">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+
+                  <input
+                    id="gio-lam-them"
+                    type="number"
+                    min="0"
+                    max="168"
+                    step="1"
+                    value="--"
+                    placeholder="--"
+                  />
+
+                  <span>giờ/tuần</span>
+                </div>
+                <small class="loi-ke-hoach"></small>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <div class="khu-nut-du-doan">
+        <button id="nut-du-doan">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Dự đoán GPA
+        </button>
+      </div>
+
+      <section id="khu-ket-qua-du-doan" class="khung duoi">
+        <!--kết quả dự đoán-->
+        <section class="khoi-ket-qua-du-doan">
+          <div class="tieu-de-khoi">
+            <div class="bieu-tuong-tieu-de">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h2>KẾT QUẢ DỰ ĐOÁN</h2>
+          </div>
+
+          <div class="danh-sach-ket-qua">
+            <!-- GPA -->
+
+            <div class="the-ket-qua the-gpa">
+              <div class="tieu-de-the">GPA học kỳ tiếp theo</div>
+
+              <div class="gia-tri-ket-qua" id="ket-qua-gpa">3.46</div>
+
+              <div class="don-vi">/ 4.00</div>
+
+              <div class="chenh-lech tang">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span id="chenh-lech-gpa"> +0.10 so với HK gần nhất </span>
+              </div>
+            </div>
+
+            <!-- Thang 10 -->
+
+            <div class="the-ket-qua the-thang10">
+              <div class="tieu-de-the">Thang điểm 10</div>
+
+              <div class="gia-tri-ket-qua mau-xanh" id="ket-qua-thang10">
+                8.65
+              </div>
+
+              <div class="don-vi">/ 10</div>
+
+              <div class="chenh-lech tang">
+                <i class="fa-solid fa-arrow-up"></i>
+
+                <span id="chenh-lech-thang10"> +0.25 so với HK gần nhất </span>
+              </div>
+            </div>
+
+            <!-- Xếp loại -->
+
+            <div class="the-ket-qua the-xep-loai">
+              <div class="tieu-de-the">Xếp loại dự kiến</div>
+
+              <div class="huy-hieu">
+                <i class="fa-solid fa-award"></i>
+              </div>
+
+              <div class="ten-xep-loai" id="xep-loai-du-kien">Giỏi</div>
+
+              <div class="ghi-chu-xep-loai" id="ghi-chu-xep-loai">
+                Khả năng duy trì tốt
+              </div>
+            </div>
+          </div>
+
+          <!--biểu đồ-->
+          <div class="khoi-bieu-do-gpa">
+            <div class="tieu-de-khoi">
+              <div class="bieu-tuong-tieu-de">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+
+              <h2>Xu hướng GPA</h2>
+            </div>
+
+            <div class="khung-bieu-do">
+              <div class="truc-y">
+                <span>4.0</span>
+                <span>3.0</span>
+                <span>2.0</span>
+                <span>1.0</span>
+                <span>0.0</span>
+              </div>
+
+              <div class="vung-bieu-do">
+                <div class="luoi"></div>
+
+                <svg id="duong-bieu-do"></svg>
+
+                <div id="cac-diem"></div>
+
+                <div class="truc-x">
+                  <span>HK1</span>
+                  <span>HK2</span>
+                  <span>HK3</span>
+                  <span>HK4</span>
+                  <span>HK5</span>
+                  <span>HK6 (Dự đoán)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chu-thich">
+              <div>
+                <span class="mau-xanh"></span>
+
+                GPA thực tế
+              </div>
+
+              <div>
+                <span class="mau-net-dut"></span>
+
+                GPA dự đoán
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--nhận xét và gợi ý-->
+        <section class="khoi-nhan-xet-goi-y">
+          <div class="khoi-nhan-xet">
+            <div class="tieu-de-khoi nhan-xet-goi-y">
+              <div class="bieu-tuong-tieu-de">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+
+              <h2>NHẬN XÉT TỪ HỆ THỐNG</h2>
+            </div>
+
+            <div class="noi-dung-nhan-xet">
+              <ul id="danh-sach-nhan-xet">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  GPA học kỳ dự kiến đạt <strong>3.28</strong>, tăng
+                  <strong>0.18</strong> so với học kỳ trước.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Có khả năng đạt xếp loại
+                  <strong>Khá</strong>.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Điểm các học phần khá đồng đều, chưa có môn có nguy cơ trượt.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-circle-check"></i>
+
+                  Kết quả dự đoán cho thấy tiến độ học tập ổn định.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="khoi-goi-y">
+            <div class="tieu-de-khoi nhan-xet-goi-y">
+              <div class="bieu-tuong-tieu-de">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+
+              <h2>Gợi ý cải thiện</h2>
+            </div>
+
+            <div class="noi-dung-goi-y">
+              <ul id="danh-sach-goi-y">
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Duy trì tỷ lệ chuyên cần trên <strong>95%</strong>.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Hoàn thành đầy đủ bài tập trước mỗi buổi học.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Dành ít nhất <strong>2 giờ</strong> tự học mỗi ngày.
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-arrow-right"></i>
+
+                  Ôn tập sớm các học phần có điểm dự đoán thấp.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../../Assets/JavaScript/Pages/Sinh-vien/Du_doan_ket_qua/Du-doan-diem-HK-sau.js"></script>
+  <script src="../../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

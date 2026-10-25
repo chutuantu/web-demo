@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/Css/reset.css" />
+    <link rel="stylesheet" href="./Assets/Css/var.css" />
+    <link rel="stylesheet" href="./Assets/Css/dang-nhap.css " />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Đăng nhập</title>
+  </head>
+  <body>
+    <div id="giao-dien-chinh">
+      <!-- Cột trái: Giới thiệu ứng dụng -->
+      <section id="vung-gioi-thieu" class="cot-giao-dien">
+        <header id="dau-trang">
+          <div class="logo-ung-dung">
+            <div class="bieu-tuong-logo">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="chu-logo">
+              <h1>EduPredict</h1>
+              <p>Dự đoán kết quả học tập của sinh viên</p>
+            </div>
+          </div>
+        </header>
+
+        <main id="noi-dung-gioi-thieu">
+          <h2 class="tieu-de-chinh">
+            Ứng dụng học máy <br />
+            dự đoán <span class="nhan-manh">kết quả học tập</span> <br />
+            của sinh viên
+          </h2>
+          <p class="mo-ta-ngan">
+            Ứng dụng các mô hình học máy tiên tiến để dự đoán điểm số, GPA sinh
+            viên.
+          </p>
+
+          <!-- Danh sách tính năng -->
+          <div class="danh-sach-tinh-nang">
+            <div class="muc-tinh-nang">
+              <div class="khung-bieu-tuong">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="thong-tin-tinh-nang">
+                <h3>Dự đoán chính xác</h3>
+                <p>Sử dụng các mô hình học máy hiện đại</p>
+              </div>
+            </div>
+
+            <div class="muc-tinh-nang">
+              <div class="khung-bieu-tuong">
+                <i class="fa-solid fa-shield"></i>
+              </div>
+              <div class="thong-tin-tinh-nang">
+                <h3>Bảo mật thông tin</h3>
+                <p>Đảm bảo an toàn dữ liệu người dùng</p>
+              </div>
+            </div>
+
+            <div class="muc-tinh-nang">
+              <div class="khung-bieu-tuong">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div class="thong-tin-tinh-nang">
+                <h3>Kết quả nhanh chóng</h3>
+                <p>Nhận dự đoán chỉ trong vài giây</p>
+              </div>
+            </div>
+
+            <div class="muc-tinh-nang">
+              <div class="khung-bieu-tuong">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div class="thong-tin-tinh-nang">
+                <h3>Phân tích toàn diện</h3>
+                <p>Đánh giá chi tiết và đề xuất tối ưu</p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+
+      <!-- Cột phải: Form đăng nhập -->
+      <section id="vung-dang-nhap" class="cot-giao-dien">
+        <div class="the-dang-nhap">
+          <div class="bieu-tuong-chao-mung">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+
+          <h2>Chào mừng bạn trở lại!</h2>
+          <p class="ghi-chu-dang-nhap">
+            Đăng nhập để tiếp tục sử dụng EduPredict
+          </p>
+
+          <form id="form-tai-khoan">
+            <!-- Ô nhập Mã sinh viên -->
+            <div class="nhom-nhap-lieu">
+              <label for="ma-dang-nhap">Tài khoản</label>
+              <div class="khung-o-nhap">
+                <i class="fa-regular fa-user bieu-tuong-o-nhap"></i>
+                <input
+                  type="text"
+                  id="ma-dang-nhap"
+                  placeholder="Nhập tài khoản của bạn"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Ô nhập Mật khẩu -->
+            <div class="nhom-nhap-lieu">
+              <label for="mat-khau">Mật khẩu</label>
+              <div class="khung-o-nhap">
+                <i class="fa-solid fa-lock bieu-tuong-o-nhap"></i>
+                <input
+                  type="password"
+                  id="mat-khau"
+                  placeholder="Nhập mật khẩu"
+                  required
+                />
+                <i
+                  class="fa-regular fa-eye bieu-tuong-an-hien"
+                  id="nut-an-hien-mk"
+                ></i>
+              </div>
+            </div>
+
+            <!-- Ghi nhớ đăng nhập -->
+            <div class="tuy-chon-phu">
+              <label class="o-chon-ghi-nho">
+                <input type="checkbox" id="ghi-nho" />
+                <span class="nhan-ghi-nho">Ghi nhớ đăng nhập</span>
+              </label>
+            </div>
+
+            <!-- Nút Đăng nhập -->
+            <button type="submit" id="nut-dang-nhap">
+              <i class="fa-solid fa-right-to-bracket"></i> Đăng nhập
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+  <script src="./Assets/JavaScript/dang-nhap.js"></script>
+</html>

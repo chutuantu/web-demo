@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../Assets/Css/Pages/Giang-vien/danh-sach-sinh-vien.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Danh sách sinh viên</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="./danh-sach-sinh-vien.html">DANH SÁCH SINH VIÊN </a>
+          </li>
+
+          <li class="lua-chon lua-chon-3">
+            <a href="./canh-bao-nguy-co.html"
+              >CẢNH BÁO NGUY CƠ
+            </a>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-4">
+            <a href="./tai-lieu.html">TÀI LIỆU </a>
+          </li>-->
+
+          <li class="lua-chon-6">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar">
+          </div>
+          <div class="ten">
+            <span></span>
+            <span></span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="trang-ho-tro-hoc-tap">
+      <section class="bang-thong-ke">
+        <article class="the-thong-ke">
+          <div class="dau-the">
+            <div>
+              <p class="chu-nho">Tổng sinh viên</p>
+              <h2>0</h2>
+            </div>
+            <span class="icon-the">
+              <i class="fa-solid fa-users"></i>
+            </span>
+          </div>
+        </article>
+
+        <article class="the-thong-ke the-nam-1">
+          <div class="dau-the">
+            <div>
+              <p class="chu-nho">Sinh viên năm 1</p>
+              <h2>0</h2>
+            </div>
+            <span class="icon-the">
+              <i class="fa-solid fa-school"></i>
+            </span>
+          </div>
+        </article>
+
+        <article class="the-thong-ke the-nam-2">
+          <div class="dau-the">
+            <div>
+              <p class="chu-nho">Sinh viên năm 2</p>
+              <h2>0</h2>
+            </div>
+            <span class="icon-the">
+              <i class="fa-solid fa-user-graduate"></i>
+            </span>
+          </div>
+        </article>
+
+        <article class="the-thong-ke the-nam-3">
+          <div class="dau-the">
+            <div>
+              <p class="chu-nho">Sinh viên năm 3</p>
+              <h2>0</h2>
+            </div>
+            <span class="icon-the">
+              <i class="fa-solid fa-user"></i>
+            </span>
+          </div>
+        </article>
+
+        <article class="the-thong-ke the-nam-4">
+          <div class="dau-the">
+            <div>
+              <p class="chu-nho">Sinh viên năm 4</p>
+              <h2>0</h2>
+            </div>
+            <span class="icon-the">
+              <i class="fa-solid fa-award"></i>
+            </span>
+          </div>
+        </article>
+      </section>
+
+      <section class="phan-loc">
+        <div class="dong-loc">
+          <div class="khung-tim-kiem">
+            <i class="fa-solid fa-search"></i>
+            <input
+              id="tim-kiem-sinh-vien"
+              type="text"
+              placeholder="Tìm kiếm sinh viên (MSSV, Họ tên...)"
+            />
+          </div>
+          <div class="loc-nhom">
+            <select id="chon-khoa">
+              <option value="">Tất cả khóa</option>
+              <option value="2025-2029">2025-2029</option>
+              <option value="2024-2028">2024-2028</option>
+              <option value="2023-2027">2023-2027</option>
+              <option value="2022-2026">2022-2026</option>
+            </select>
+          </div>
+          <div class="loc-nhom">
+            <select id="chon-lop">
+              <option value="">Tất cả lớp</option>
+              <option value="CNTT14A">CNTT14A</option>
+            </select>
+          </div>
+          <div class="loc-nhom">
+            <select id="chon-nganh">
+              <option value="">Tất cả ngành</option>
+              <option value="CNTT">Công nghệ Thông tin</option>
+            </select>
+          </div>
+          <div class="loc-nhom">
+            <select id="chon-trang-thai">
+              <option value="">Tất cả trạng thái</option>
+              <option value="canh-bao">Cảnh báo</option>
+            </select>
+          </div>
+        </div>
+        <div class="dong-nut-loc">
+          <button class="nut-dat-lai" type="button">Đặt lại</button>
+          <button class="nut-tim-kiem" type="button">Tìm kiếm</button>
+        </div>
+      </section>
+
+      <section class="khung-bang">
+        <div class="thanh-bang">
+          <div class="chon-hien-thi">
+            <span>Hiển thị</span>
+            <select id="so-ban-ghi">
+              <option>5</option>
+              <option>10</option>
+            </select>
+            <span>bản ghi</span>
+          </div>
+          <div class="nut-xuat-bang">
+            <button class="nut-xuat nut-xuat-excel" type="button">
+              <i class="fa-solid fa-file-excel"></i>
+              Xuất Excel
+            </button>
+            <button class="nut-xuat nut-xuat-pdf" type="button">
+              <i class="fa-solid fa-file-pdf"></i>
+              Xuất PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="bang-du-lieu">
+          <table>
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>MSSV</th>
+                <th>Họ và tên</th>
+                <th>Lớp</th>
+                <th>Khóa</th>
+                <th>Ngành học</th>
+                <th>GPA hiện tại</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="phan-trang">
+          <span>Hiển thị 1 đến 10 của 128 bản ghi</span>
+          <div class="nut-phan-trang">
+            <button class="trang">&lt;</button>
+            <button class="trang active">1</button>
+            <button class="trang">2</button>
+            <button class="trang">3</button>
+            <span>...</span>
+            <button class="trang">13</button>
+            <button class="trang">&gt;</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Giang-vien/danh-sach-sinh-vien.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

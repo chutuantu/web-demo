@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link
+      rel="stylesheet"
+      href="../../Assets/Css/Pages/Giang-vien/tai-lieu.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="./danh-sach-sinh-vien.html">DANH SÁCH SINH VIÊN </a>
+          </li>
+
+          <li class="lua-chon lua-chon-3">
+            <a href="./canh-bao-nguy-co.html">CẢNH BÁO NGUY CƠ </a>
+          </li>
+
+          <li class="lua-chon lua-chon-4">
+            <a href="./tai-lieu.html">TÀI LIỆU </a>
+          </li>
+
+          <li class="lua-chon-6">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar">
+          </div>
+          <div class="ten">
+            <span>Chu Tuấn Tú</span>
+            <span>24D0043CNT</span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="app-body">
+      <!-- Dashboard Stats -->
+      <div class="stats-container">
+        <div class="stat-card primary-btn" id="nut-them-tai-nguyen">
+          <div class="btn-content">
+            <i data-lucide="plus" class="plus-icon"></i>
+            <div>
+              <h3>Thêm tài liệu mới</h3>
+              <p>Tải lên và chia sẻ tài liệu</p>
+            </div>
+          </div>
+          <i data-lucide="cloud-upload" class="bg-upload-icon"></i>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-green">
+            <i data-lucide="file-text"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Tổng tài liệu</span>
+            <span class="stat-value">126</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-red">
+            <i data-lucide="file-type-2"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-label">Tài liệu PDF</span>
+            <span class="stat-value">78</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-orange"><i data-lucide="video"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Tài liệu Video</span>
+            <span class="stat-value">23</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-blue"><i data-lucide="link"></i></div>
+          <div class="stat-info">
+            <span class="stat-label">Tài liệu Link</span>
+            <span class="stat-value">25</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Layout -->
+      <main class="main-content">
+        <!-- Left Section: Filters & Table -->
+        <section class="data-section">
+          <!-- Filter Bar -->
+          <div class="filter-bar">
+            <div class="search-box">
+              <i data-lucide="search"></i>
+              <input
+                type="text"
+                id="o-tim-tai-nguyen"
+                placeholder="Tìm kiếm tài liệu, môn học, từ khóa..."
+              />
+            </div>
+            <select class="filter-select" id="loc-loai">
+              <option>Tất cả loại</option>
+            </select>
+            <button class="btn-refresh">
+              <i data-lucide="rotate-cw"></i> Làm mới
+            </button>
+          </div>
+
+          <!-- Table -->
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th width="40"><input type="checkbox" /></th>
+                  <th>Tên tài liệu</th>
+                  <th>Môn học</th>
+                  <th>Loại</th>
+                  <th>Dung lượng</th>
+                  <th>Ngày đăng</th>
+                  <th>Trạng thái</th>
+                  <th class="text-center">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Footer -->
+          <div class="pagination-container">
+            <span class="pagination-info"
+              >Hiển thị 1 - 5 trong 126 tài liệu</span
+            >
+            <div class="pagination-controls">
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <span class="dots">...</span>
+              <button class="page-btn">21</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>support@edupredict.ai</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0123 456 789</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học Công nghệ Thông tin</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="./danh-sach-sinh-vien.html"> Danh sách sinh viên </a>
+            </li>
+
+            <li>
+              <a href="./canh-bao-nguy-co.html">Cảnh báo nguy cơ</a>
+            </li>
+
+            <li>
+              <a href="./tai-lieu.html">Tài liệu</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Giang-vien/tai-lieu.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

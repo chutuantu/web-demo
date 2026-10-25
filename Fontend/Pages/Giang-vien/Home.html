@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../Assets/Css/var.css" />
+    <link rel="stylesheet" href="../../Assets/Css/Pages/Giang-vien/home.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="thanh-menu">
+        <!-- Bổ sung nút bấm 3 gạch này vào trong .thanh-menu -->
+        <button class="nut-mo-menu" id="openMenuBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul class="main-menu" id="mobileMenu">
+          <!-- Nút dấu X để đóng menu khi đang mở rộng -->
+          <li class="nut-dong-menu" id="closeMenuBtn">
+            <i class="fa-solid fa-xmark"></i>
+          </li>
+
+          <li class="lua-chon-1">
+            <a href="./Home.html">TRANG CHỦ</a>
+          </li>
+          <li class="lua-chon lua-chon-2">
+            <a href="./danh-sach-sinh-vien.html">DANH SÁCH SINH VIÊN </a>
+          </li>
+
+          <li class="lua-chon lua-chon-3">
+            <a href="./canh-bao-nguy-co.html">CẢNH BÁO NGUY CƠ </a>
+          </li>
+
+          <!--
+          <li class="lua-chon lua-chon-4">
+            <a href="./tai-lieu.html">TÀI LIỆU </a>
+          </li>-->
+
+          <li class="lua-chon-6">
+            <a href="#lien-he-footer">LIÊN HỆ</a>
+          </li>
+        </ul>
+
+        <div class="thong-tin">
+          <div class="atavar"></div>
+          <div class="ten">
+            <span></span>
+            <span></span>
+          </div>
+          <i class="fa-solid fa-caret-down"></i>
+
+          <div class="thong-tin-chi-tiet">
+            <div class="ho-ten">
+              <i class="fas fa-address-card mr-1"></i>
+              Họ và tên:
+              <span>
+                <strong>Chu Tuấn Tú</strong>
+              </span>
+            </div>
+            <div class="tai-khoan">
+              <i class="far fa-id-card mr-1"></i>
+              Tài khoản:
+              <span>
+                <strong>24D0043CNT</strong>
+              </span>
+            </div>
+            <div class="dang-xuat">
+              <i class="fas fa-sign-out-alt mr-2"></i>
+              Đăng xuất
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="noi-dung-chinh">
+      <!-- PHẦN 1: LỜI CHÀO GIẢNG VIÊN -->
+      <section id="loi-chao-giang-vien" class="phan loi-chao-giang-vien">
+        <div class="khoi-loi-chao">
+          <div class="noi-dung-loi-chao">
+            <h1>
+              <span class="bieu-tuong-chao">👋</span>
+              Xin chào, <span class="ten-giang-vien"></span>
+            </h1>
+            <div class="thong-tin-ngay">
+              <i class="fa-regular fa-calendar"></i>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHẦN 2: 4 THẺ THỐNG KÊ -->
+      <section id="thong-ke-tong-quan" class="phan thong-ke-tong-quan">
+        <div class="luoi-the-thong-ke">
+          <!-- 2.1 -->
+          <article id="tong-quan-sinh-vien" class="the-thong-ke the-xanh">
+            <div class="phan-tren-the">
+              <div class="bieu-tuong-the">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="tieu-de-the">Tổng số sinh viên</div>
+            </div>
+            <div class="so-lieu-the" id="gia-tri-tong-sinh-vien">0</div>
+          </article>
+
+          <!-- 2.2 -->
+          <article id="sinh-vien-nguy-co-cao" class="the-thong-ke the-cam">
+            <div class="phan-tren-the">
+              <div class="bieu-tuong-the">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="tieu-de-the">Sinh viên<br />nguy cơ cao</div>
+            </div>
+            <div class="so-lieu-the" id="gia-tri-nguy-co-cao">0</div>
+          </article>
+
+          <!-- 2.3 -->
+          <article id="luot-du-doan" class="the-thong-ke the-xanh-duong">
+            <div class="phan-tren-the">
+              <div class="bieu-tuong-the">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div class="tieu-de-the">Lượt dự đoán<br />đã thực hiện</div>
+            </div>
+            <div class="so-lieu-the" id="gia-tri-luot-du-doan">0</div>
+          </article>
+
+          <!-- 2.4 -->
+          <article id="tai-lieu-da-dang" class="the-thong-ke the-tim">
+            <div class="phan-tren-the">
+              <div class="bieu-tuong-the">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+              <div class="tieu-de-the">Tài liệu<br />đã đăng</div>
+            </div>
+            <div class="so-lieu-the" id="gia-tri-tai-lieu-da-dang">0</div>
+          </article>
+        </div>
+      </section>
+      <!-- PHẦN 3: XU HƯỚNG KẾT QUẢ HỌC TẬP -->
+      <section class="khung-tong-bieu-do">
+        <section id="xu-huong-ket-qua-hoc-tap" class="phan-xu-huong">
+          <div class="the-xu-huong">
+            <!-- TIÊU ĐỀ -->
+            <div class="tieu-de-xu-huong">
+              <div class="nhom-tieu-de">
+                <h2>Xu hướng kết quả học tập</h2>
+
+                <span
+                  class="nut-thong-tin"
+                  title="Theo dõi xu hướng kết quả học tập qua các học kỳ"
+                >
+                  <i class="fa-solid fa-circle-info"></i>
+                </span>
+              </div>
+
+              <!-- Bộ lọc -->
+              <select id="bo-loc-hoc-ky" class="bo-loc-hoc-ky">
+                <option value="6">6 học kỳ gần nhất</option>
+
+                <option value="4">4 học kỳ gần nhất</option>
+
+                <option value="3">3 học kỳ gần nhất</option>
+              </select>
+            </div>
+
+            <!-- ==============================
+                 CHÚ GIẢI
+                 ============================== -->
+
+            <div class="chu-giai-xu-huong">
+              <div class="muc-chu-giai">
+                <span class="dau-mau mau-xanh-la"></span>
+
+                <span> GPA trung bình </span>
+              </div>
+
+              <div class="muc-chu-giai">
+                <span class="dau-mau mau-xanh-duong"></span>
+
+                <span> Tỷ lệ sinh viên khá giỏi </span>
+              </div>
+
+              <div class="muc-chu-giai">
+                <span class="dau-mau mau-do"></span>
+
+                <span> Tỷ lệ sinh viên nguy cơ </span>
+              </div>
+            </div>
+
+            <!-- ==============================
+                 KHU VỰC BIỂU ĐỒ
+                 ============================== -->
+
+            <div id="khung-bieu-do-xu-huong" class="khung-bieu-do-xu-huong">
+              <!-- Trục Y -->
+
+              <div id="nhan-truc-y" class="nhan-truc-y">
+                <span>100%</span>
+                <span>75%</span>
+                <span>50%</span>
+                <span>25%</span>
+                <span>0%</span>
+              </div>
+
+              <!-- Canvas -->
+
+              <canvas id="bieu-do-xu-huong"> </canvas>
+
+              <!-- Tooltip -->
+
+              <div id="hop-thong-tin-bieu-do" class="hop-thong-tin-bieu-do">
+                <div id="tieu-de-tooltip" class="tieu-de-tooltip"></div>
+
+                <div id="noi-dung-tooltip" class="noi-dung-tooltip"></div>
+              </div>
+            </div>
+          </div>
+          <!-- ❗ THẺ NÀY BỊ THIẾU TRONG FILE GỐC -->
+        </section>
+
+        <!-- PHẦN 4 - PHÂN BỐ XẾP LOẠI -->
+
+        <section id="phan-bo-xep-loai" class="phan-bo-xep-loai">
+          <div class="khoi-phan-bo">
+            <!-- TIÊU ĐỀ -->
+
+            <div class="tieu-de-phan-bo">
+              <div class="nhom-tieu-de-phan-bo">
+                <h2>Phân bố xếp loại</h2>
+
+                <span
+                  class="nut-thong-tin-phan-bo"
+                  title="Phân bố kết quả học tập của sinh viên"
+                >
+                  <i class="fa-solid fa-circle-info"></i>
+                </span>
+              </div>
+
+              <span class="chu-ky-xem"> Học kỳ hiện tại </span>
+            </div>
+
+            <!-- NỘI DUNG -->
+
+            <div class="noi-dung-phan-bo">
+              <!-- BIỂU ĐỒ DONUT -->
+
+              <div class="khu-vuc-bieu-do-donut">
+                <canvas id="bieu-do-phan-bo-xep-loai"> </canvas>
+
+                <!-- Nội dung ở giữa donut -->
+
+                <div class="noi-dung-giua-donut">
+                  <span class="tong-so-sinh-vien" id="tong-sinh-vien-phan-bo">
+                    0
+                  </span>
+
+                  <span class="chu-tong-sinh-vien"> Sinh viên </span>
+                </div>
+              </div>
+
+              <!-- DANH SÁCH XẾP LOẠI -->
+
+              <div id="danh-sach-xep-loai" class="danh-sach-xep-loai">
+                <!-- Xuất sắc -->
+
+                <div class="dong-xep-loai" data-loai="xuat-sac">
+                  <div class="ten-xep-loai">
+                    <span class="dau-mau-xep-loai mau-xuat-sac"> </span>
+
+                    <span> Xuất sắc </span>
+                  </div>
+
+                  <div class="so-luong-xep-loai">
+                    <strong> 0 </strong>
+
+                    <span> (0%) </span>
+                  </div>
+                </div>
+
+                <!-- Giỏi -->
+
+                <div class="dong-xep-loai" data-loai="gioi">
+                  <div class="ten-xep-loai">
+                    <span class="dau-mau-xep-loai mau-gioi"> </span>
+
+                    <span> Giỏi </span>
+                  </div>
+
+                  <div class="so-luong-xep-loai">
+                    <strong> 0 </strong>
+
+                    <span> (0%) </span>
+                  </div>
+                </div>
+
+                <!-- Khá -->
+
+                <div class="dong-xep-loai" data-loai="kha">
+                  <div class="ten-xep-loai">
+                    <span class="dau-mau-xep-loai mau-kha"> </span>
+
+                    <span> Khá </span>
+                  </div>
+
+                  <div class="so-luong-xep-loai">
+                    <strong> 0 </strong>
+
+                    <span> (0%) </span>
+                  </div>
+                </div>
+
+                <!-- Trung bình -->
+
+                <div class="dong-xep-loai" data-loai="trung-binh">
+                  <div class="ten-xep-loai">
+                    <span class="dau-mau-xep-loai mau-trung-binh"> </span>
+
+                    <span> Trung bình </span>
+                  </div>
+
+                  <div class="so-luong-xep-loai">
+                    <strong> 0 </strong>
+
+                    <span> (0%) </span>
+                  </div>
+                </div>
+
+                <!-- Yếu -->
+
+                <div class="dong-xep-loai" data-loai="yeu">
+                  <div class="ten-xep-loai">
+                    <span class="dau-mau-xep-loai mau-yeu"> </span>
+
+                    <span> Yếu </span>
+                  </div>
+
+                  <div class="so-luong-xep-loai">
+                    <strong> 0 </strong>
+
+                    <span> (0%) </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- PHẦN 5 - SINH VIÊN NGUY CƠ CAO -->
+      <section class="nguy-co-giang-day">
+        <section id="sinh-vien-nguy-co-cao" class="phan-sinh-vien-nguy-co">
+          <div class="khoi-sinh-vien-nguy-co">
+            <!-- =================================================
+             TIÊU ĐỀ
+             ================================================= -->
+
+            <div class="tieu-de-nguy-co">
+              <div class="nhom-tieu-de-nguy-co">
+                <div class="bieu-tuong-nguy-co">
+                  <i class="fa-solid fa-user-shield"></i>
+                </div>
+
+                <div>
+                  <h2>Sinh viên nguy cơ cao</h2>
+
+                  <p>Danh sách sinh viên cần được quan tâm và hỗ trợ</p>
+                </div>
+              </div>
+
+              <div class="khu-vuc-loc-nguy-co">
+                <select id="bo-loc-nguy-co" class="bo-loc-nguy-co">
+                  <option value="tat-ca">Tất cả mức nguy cơ</option>
+
+                  <option value="cao">Nguy cơ cao</option>
+
+                  <option value="trung-binh">Nguy cơ trung bình</option>
+                </select>
+
+                <button
+                  id="nut-xem-danh-sach-nguy-co"
+                  class="nut-xem-danh-sach-nguy-co"
+                >
+                  Xem tất cả
+
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- =================================================
+             THANH THÔNG TIN
+             ================================================= -->
+
+            <div class="thanh-thong-tin-nguy-co">
+              <div class="tong-so-nguy-co">
+                <span class="cham-nguy-co"></span>
+
+                <span> Đang có </span>
+
+                <strong id="so-sinh-vien-nguy-co"> 12 </strong>
+
+                <span> sinh viên cần theo dõi </span>
+              </div>
+
+              <div class="chu-thich-nguy-co">
+                <span class="chu-thich-muc cao">
+                  <i class="fa-solid fa-circle"></i>
+                  Cao
+                </span>
+
+                <span class="chu-thich-muc trung-binh">
+                  <i class="fa-solid fa-circle"></i>
+                  Trung bình
+                </span>
+              </div>
+            </div>
+
+            <!-- =================================================
+             BẢNG SINH VIÊN
+             ================================================= -->
+
+            <div class="khung-bang-nguy-co" id="khung-danh-sach-nguy-co-home">
+              <div class="tieu-de-bang-nguy-co">
+                <div>Sinh viên</div>
+
+                <div>Lớp</div>
+
+                <div>GPA</div>
+
+                <div>Điểm nguy cơ</div>
+
+                <div>Nguyên nhân</div>
+
+                <div>Trạng thái</div>
+
+                <div>Thao tác</div>
+              </div>
+            </div>
+
+            <!-- =================================================
+             KHÔNG CÓ KẾT QUẢ
+             ================================================= -->
+
+            <div
+              id="khong-co-sinh-vien-nguy-co"
+              class="khong-co-sinh-vien-nguy-co"
+            >
+              <i class="fa-solid fa-user-check"></i>
+
+              <span> Không có sinh viên phù hợp. </span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer id="lien-he-footer">
+      <div class="footer">
+        <!-- Cột 1 -->
+        <div class="cot-footer cot-gioi-thieu">
+          <h2>EduPredict AI</h2>
+
+          <p>
+            Ứng dụng học máy dự đoán kết quả học tập của sinh viên, đồng hành
+            cùng bạn trên con đường chinh phục tri thức.
+          </p>
+
+          <div class="mang-xa-hoi">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Cột 2 -->
+        <div class="cot-footer">
+          <h3>LIÊN HỆ</h3>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-envelope"></i>
+            <span>tutuan22102006@gmail.com</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-phone"></i>
+            <span>0395489838</span>
+          </div>
+
+          <div class="dong-lien-he">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Trường Đại học nông - lâm Bắc Giang</span>
+          </div>
+        </div>
+
+        <!-- Cột 3 -->
+        <div class="cot-footer">
+          <h3>LIÊN KẾT NHANH</h3>
+
+          <ul class="footer-menu">
+            <li>
+              <a href="./Home.html">Trang chủ</a>
+            </li>
+
+            <li>
+              <a href="#"> Dự đoán kết quả </a>
+            </li>
+
+            <!--
+            <li>
+              <a href="../Sinh-vien/Ho-tro-hoc-tap.html">Hỗ trợ học tập</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../../Assets/JavaScript/Pages/Giang-vien/home.js"></script>
+  <script src="../../Assets/JavaScript/bao-ve-trang.js"></script>
+  <script src="../../Assets/JavaScript/thong-tin-sv-header.js"></script>
+</html>

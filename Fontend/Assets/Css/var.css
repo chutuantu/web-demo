@@ -1,0 +1,67 @@
+:root {
+  --xanh_la: #009047;
+  --trang_tinh: #ffffff;
+  --den_thuan: #000000;
+  --gray: rgb(128, 128, 128);
+  --xanh-la: #16a34a;
+  --xanh-la-dam: #15803d;
+  --xanh-la-nhat: #eefbf3;
+  --xanh-duong: #2563eb;
+  --xanh-duong-nhat: #eef4ff;
+  --cam: #f59e0b;
+  --cam-nhat: #fff8eb;
+  --tim: #7c3aed;
+  --tim-nhat: #f6f2ff;
+  --vien: #e5e7eb;
+  --chu: #374151;
+  --chu-phu: #6b7280;
+  --trang: #ffffff;
+  --do-bong: 0 10px 25px rgba(0, 0, 0, 0.06);
+  --bo-goc: 18px;
+
+  /*=========================
+        PRIMARY
+=========================*/
+
+  --primary: #0fb530;
+  --primary-dark: #16a34a;
+  --primary-light: #e8f8ee;
+
+  /*=========================
+        SECONDARY
+=========================*/
+
+  --blue: #2b7cff;
+  --blue-light: #edf4ff;
+
+  --purple: #7b4dff;
+  --purple-light: #f3ecff;
+
+  --orange: #ff9800;
+  --orange-light: #fff4e7;
+
+  --danger: #ef4444;
+  --danger-light: #fff4f4;
+
+  /*=========================
+        TEXT
+=========================*/
+
+  --text-primary: #222;
+  --text-secondary: #444;
+  --text-light: #666;
+
+  /*=========================
+        BORDER
+=========================*/
+
+  --border: #eee;
+  --border-light: #edf2f7;
+
+  /*=========================
+        BACKGROUND
+=========================*/
+
+  --bg-card: #f8fafc;
+  --bg-success: #ecfdf3;
+}
