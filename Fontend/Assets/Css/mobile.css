@@ -832,6 +832,25 @@
     padding: 14px;
   }
 
+  #xu-huong-ket-qua-hoc-tap .the-xu-huong {
+    height: auto;
+  }
+
+  #xu-huong-ket-qua-hoc-tap .tieu-de-xu-huong {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  #xu-huong-ket-qua-hoc-tap .bo-loc-hoc-ky {
+    width: 100%;
+  }
+
+  #xu-huong-ket-qua-hoc-tap .chu-giai-xu-huong {
+    margin-top: 10px;
+  }
+
   .tieu-de-xu-huong,
   .tieu-de-phan-bo {
     flex-wrap: wrap;
@@ -919,11 +938,16 @@
   }
 
   .search-box {
+    flex: 0 0 auto;
     width: 100%;
+    height: 48px;
+    min-height: 48px;
   }
 
   .search-box input {
     width: 100%;
+    height: 100%;
+    font-size: 16px;
   }
 
   .table-scroll {

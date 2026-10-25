@@ -26,7 +26,8 @@ router.get(
                         MA_GIANG_VIEN,
                         HO_TEN,
                         EMAIL,
-                        BO_MON
+                        BO_MON,
+                        ANH_DAI_DIEN
                     FROM GIANG_VIEN
                     WHERE ID_TAI_KHOAN = @idTaiKhoan
                 `);

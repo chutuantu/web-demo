@@ -415,7 +415,7 @@ function veBieuDoXuHuong(data) {
 
   const laMobile = window.matchMedia("(max-width: 1024px)").matches;
 
-  const paddingLeft = laMobile ? 26 : 20;
+  const paddingLeft = laMobile ? 44 : 20;
 
   const paddingRight = laMobile ? 12 : 20;
 
@@ -685,8 +685,6 @@ function veDuongTrend(ctx, values, color, config) {
 
     ctx.font = "600 9px Arial";
 
-    ctx.textAlign = "center";
-
     ctx.textBaseline = "bottom";
 
     let label;
@@ -697,7 +695,19 @@ function veDuongTrend(ctx, values, color, config) {
       label = `${Number(point.value).toFixed(0)}%`;
     }
 
-    ctx.fillText(label, point.x, point.y - 7);
+    const doRongNhan = ctx.measureText(label).width;
+
+    const canhTrucY = paddingLeft - 6;
+
+    if (point.x - doRongNhan / 2 < canhTrucY + 2) {
+      ctx.textAlign = "left";
+
+      ctx.fillText(label, point.x + 6, point.y - 7);
+    } else {
+      ctx.textAlign = "center";
+
+      ctx.fillText(label, point.x, point.y - 7);
+    }
 
     ctx.restore();
   });

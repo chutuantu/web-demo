@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Ảnh đại diện giảng viên">
+  <defs>
+    <linearGradient id="nen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef5f0" />
+      <stop offset="100%" stop-color="#cfe0d5" />
+    </linearGradient>
+    <clipPath id="bo-tron">
+      <circle cx="100" cy="100" r="100" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#bo-tron)">
+    <rect width="200" height="200" fill="url(#nen)" />
+    <circle cx="100" cy="78" r="33" fill="#7fae95" />
+    <path
+      d="M100 118c-31 0-56 20-60 48v34h120v-34c-4-28-29-48-60-48z"
+      fill="#7fae95"
+    />
+    <path
+      d="M100 118c-9 0-17 1-25 4l25 30 25-30c-8-3-16-4-25-4z"
+      fill="#ffffff"
+      opacity="0.55"
+    />
+  </g>
+</svg>

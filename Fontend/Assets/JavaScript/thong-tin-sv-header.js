@@ -6,7 +6,10 @@
 const ANH_DAI_DIEN_MAC_DINH_SV =
   "/Assets/Images/Avatars/sv-mac-dinh.jpg";
 
-function datAnhDaiDien(duongDan, hoTen) {
+const ANH_DAI_DIEN_MAC_DINH_GV =
+  "/Assets/Images/Avatars/gv-mac-dinh.svg";
+
+function datAnhDaiDien(duongDan, hoTen, macDinh) {
   const danhSach = document.querySelectorAll(".atavar, .avatar-sv");
 
   if (!danhSach.length) {
@@ -15,6 +18,7 @@ function datAnhDaiDien(duongDan, hoTen) {
 
   const url =
     String(duongDan || "").trim() ||
+    macDinh ||
     ANH_DAI_DIEN_MAC_DINH_SV;
 
   const chu =
@@ -192,6 +196,13 @@ async function layThongTinNguoiDung() {
         nguoiDung.MA_GIANG_VIEN ||
         nguoiDung.maGiangVien ||
         "Chưa cập nhật";
+
+      datAnhDaiDien(
+        nguoiDung.ANH_DAI_DIEN ||
+          nguoiDung.anhDaiDien,
+        hoTen,
+        ANH_DAI_DIEN_MAC_DINH_GV
+      );
     }
 
     // ==================================================
