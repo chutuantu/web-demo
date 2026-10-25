@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Chưa đăng nhập
   if (!token || !taiKhoan) {
-    window.location.href = window.location.origin + "/Fontend/index.html";
+    window.location.href = window.location.origin + "/index.html";
     return;
   }
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("taiKhoan");
 
-    window.location.href = window.location.origin + "/Fontend/index.html";
+    window.location.href = window.location.origin + "/index.html";
     return;
   }
 
@@ -38,14 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sinh viên không được vào khu vực giảng viên
   if (dangOTrangGiangVien && vaiTro !== "GIANG_VIEN") {
-    window.location.href = "../sinh-vien/Home.html";
+    window.location.href = "/Pages/Sinh-vien/Home.html";
 
     return;
   }
 
   // Giảng viên không được vào khu vực sinh viên
   if (dangOTrangSinhVien && vaiTro !== "SINH_VIEN") {
-    window.location.href = "../giang-vien/Home.html";
+    window.location.href = "/Pages/Giang-vien/Home.html";
 
     return;
   }

@@ -78,7 +78,7 @@ if (khuVucKetQua) {
 
 async function taiDanhSachHocPhan() {
   try {
-    const response = await fetch("http://localhost:3000/api/hoc-phan");
+    const response = await fetch("/api/hoc-phan");
 
     const data = await response.json();
 
@@ -1098,7 +1098,7 @@ if (nutDuDoan) {
       oNamHoc?.value || oNamHoc?.selectedOptions?.[0]?.textContent || "",
     )
       .trim()
-      .replace(/\s*-\s*/g, " - ");
+      .replace(/\s*-\s*/g, "-");
 
     // ------------------------------------------------------
     // Kiểm tra
@@ -1179,7 +1179,7 @@ if (nutDuDoan) {
       // ====================================================
 
       const response = await fetch(
-        "http://localhost:3000/api/du-doan/gpa-hoc-ky",
+        "/api/du-doan/gpa-hoc-ky",
         {
           method: "POST",
 
@@ -1439,7 +1439,7 @@ if (nutTaiBaoCao) {
       // ====================================================
 
       const response = await fetch(
-        `http://localhost:3000/api/bao-cao/du-doan-hoc-ky/${idDuDoanHienTai}`,
+        `/api/bao-cao/du-doan-hoc-ky/${idDuDoanHienTai}`,
         {
           method: "GET",
 

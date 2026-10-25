@@ -7,7 +7,7 @@
 // 1. API
 // ============================================================
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 const API_CANH_BAO_NGUY_CO = `${API_BASE_URL}/api/giang-vien/canh-bao-nguy-co`;
 

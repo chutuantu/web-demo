@@ -6,7 +6,7 @@ const phanQuyen = require("../middleware/phanQuyen.js");
 
 const router = express.Router();
 
-const ML_API_URL = "http://127.0.0.1:5000/du-doan-gpa-hoc-ky-tiep-theo";
+const ML_API_URL = `${process.env.ML_API_URL || "http://127.0.0.1:5000"}/du-doan-gpa-hoc-ky-tiep-theo`;
 
 /* ============================================================
    TÍNH XU HƯỚNG GPA

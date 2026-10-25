@@ -36,8 +36,6 @@ body {
   flex-direction: column;
 }
 
-/* ==================== CỘT TRÁI: GIỚI THIỆU ==================== */
-
 .logo-ung-dung {
   display: flex;
   align-items: center;
@@ -53,7 +51,7 @@ body {
   position: relative;
 }
 
-.bieu-tuong-logo i{
+.bieu-tuong-logo i {
   position: absolute;
   top: 25%;
   left: 20%;
@@ -132,7 +130,7 @@ body {
   line-height: 1.4;
 }
 
-/* ==================== CỘT PHẢI: FORM ĐĂNG NHẬP ==================== */
+/* ==================== FORM ĐĂNG NHẬP ==================== */
 #vung-dang-nhap {
   justify-content: center;
   align-items: flex-end;
@@ -291,28 +289,11 @@ body {
     flex-direction: column;
     gap: 40px;
     min-height: auto;
+    max-width: 440px;
   }
 
   #vung-gioi-thieu {
-    align-items: center;
-    text-align: center;
-  }
-
-  .tieu-de-chinh {
-    font-size: 30px;
-    margin-top: 25px;
-  }
-
-  .mo-ta-ngan {
-    margin: 12px auto 0 auto;
-  }
-
-  .danh-sach-tinh-nang {
-    grid-template-columns: 1fr 1fr;
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    display: none;
   }
 
   #vung-dang-nhap {
@@ -321,7 +302,6 @@ body {
   }
 
   .the-dang-nhap {
-    max-width: 500px; /* Nới rộng form một chút trên tablet nhìn cân đối hơn */
     padding: 40px;
   }
 }
@@ -330,38 +310,6 @@ body {
 @media (max-width: 425px) {
   body {
     padding: 15px 10px;
-  }
-
-  #giao-dien-chinh {
-    gap: 30px;
-  }
-
-  .logo-ung-dung {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .bieu-tuong-logo {
-    padding: 10px;
-    font-size: 22px;
-  }
-
-  .tieu-de-chinh {
-    font-size: 24px;
-    line-height: 1.4;
-  }
-
-  .danh-sach-tinh-nang {
-    grid-template-columns: 1fr; /* Chuyển thành 1 cột duy nhất trên mobile */
-    gap: 16px;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .khung-bieu-tuong {
-    min-width: 40px;
-    height: 40px;
-    font-size: 14px;
   }
 
   .the-dang-nhap {

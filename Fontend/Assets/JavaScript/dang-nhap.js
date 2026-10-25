@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // GỌI BACKEND
       // ==============================
 
-      const phanHoi = await fetch("http://localhost:3000/api/dang-nhap", {
+      const phanHoi = await fetch("/api/dang-nhap", {
         method: "POST",
 
         headers: {
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (duLieu.taiKhoan.vaiTro === "GIANG_VIEN") {
         console.log("→ Chuyển sang trang Giảng viên");
 
-        window.location.href = "Pages/Giang-vien/home.html";
+        window.location.href = "Pages/Giang-vien/Home.html";
       } else {
         alert("Vai trò tài khoản không hợp lệ.");
       }

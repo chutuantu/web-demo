@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const router = express.Router();
 
-const ML_API_URL = "http://127.0.0.1:5000/du-doan";
+const ML_API_URL = `${process.env.ML_API_URL || "http://127.0.0.1:5000"}/du-doan`;
 
 // ============================================================
 // POST /api/du-doan/diem-hoc-phan

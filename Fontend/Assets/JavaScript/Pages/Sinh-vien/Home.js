@@ -8,7 +8,7 @@
    1. CẤU HÌNH API
 ========================================================= */
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 const API_HOME = `${API_BASE_URL}/api/home/du-lieu`;
 

@@ -120,6 +120,7 @@
 .atavar img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .ten {
@@ -199,14 +200,14 @@
 .hop-banner {
   display: flex;
   width: 100%;
-  height: 400px;
+  height: auto;
+  align-items: flex-start;
   transition: transform 0.5s ease-in-out;
 }
 
 .hop-banner img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   flex-shrink: 0;
 }
 
@@ -1064,7 +1065,7 @@ Tablet doc
   }
 
   .hop-banner {
-    height: 280px;
+    height: auto;
   }
 
   .mui-ten {
@@ -1131,7 +1132,7 @@ Tablet doc
   }
 
   .hop-banner {
-    height: 220px;
+    height: auto;
   }
 
   .mui-ten {

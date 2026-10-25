@@ -40,7 +40,7 @@ if (muiTenThongTin && khungThongTinChiTiet) {
 // 2. API
 // ============================================================
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 const API_DANH_SACH_SINH_VIEN = `${API_BASE_URL}/api/giang-vien/danh-sach-sinh-vien`;
 

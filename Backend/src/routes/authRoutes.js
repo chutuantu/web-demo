@@ -159,7 +159,7 @@ router.post("/dang-xuat", async (req, res) => {
       .query(`
         UPDATE PHIEN_DANG_NHAP
         SET
-          DANG_ONLINE = 0
+          DANG_ONLINE = 0,
           THOI_GIAN_HOAT_DONG_CUOI = GETDATE()
         WHERE ID_PHIEN = @idPhien
           AND DANG_ONLINE = 1

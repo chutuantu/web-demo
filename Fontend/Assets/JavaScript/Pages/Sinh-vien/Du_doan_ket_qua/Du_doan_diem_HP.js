@@ -36,7 +36,7 @@ if (muiTenThongTin && khungThongTinChiTiet) {
 // API
 // ============================================================
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 const API_DU_DOAN_DIEM_HOC_PHAN = `${API_BASE_URL}/api/du-doan/diem-hoc-phan`;
 

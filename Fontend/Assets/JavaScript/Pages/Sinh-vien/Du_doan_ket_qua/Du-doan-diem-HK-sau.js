@@ -137,7 +137,7 @@ nutDuDoan.addEventListener("click", async function () {
 
   try {
     const response = await fetch(
-      "http://localhost:3000/api/du-doan/gpa-hoc-ky-tiep-theo",
+      "/api/du-doan/gpa-hoc-ky-tiep-theo",
       {
         method: "POST",
 

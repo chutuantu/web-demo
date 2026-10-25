@@ -15,7 +15,7 @@ const router = express.Router();
 // ML API CŨ - DỰ ĐOÁN ĐIỂM HỌC PHẦN
 // ============================================================
 
-const ML_API_URL = "http://127.0.0.1:5000/du-doan";
+const ML_API_URL = `${process.env.ML_API_URL || "http://127.0.0.1:5000"}/du-doan`;
 
 // ============================================================
 // QUY ĐỔI ĐIỂM HỌC PHẦN HỆ 10 → HỆ 4
@@ -438,7 +438,9 @@ router.post(
 
       const hocKyNumber = Number(hocKy);
 
-      const namHocString = String(namHoc || "").trim();
+      const namHocString = String(namHoc || "")
+      .trim()
+      .replace(/\s*-\s*/g, "-");
 
       if (!Number.isInteger(hocKyNumber) || hocKyNumber <= 0) {
         return res.status(400).json({
@@ -604,15 +606,42 @@ router.post(
         AND NAM_HOC = @NAM_HOC
   `);
 
-          if (resultDuLieu.recordset.length === 0) {
-            return res.status(404).json({
-              thanhCong: false,
+          let duLieu = resultDuLieu.recordset[0] || null;
 
-              thongBao: `Không tìm thấy dữ liệu học tập của ${maHocPhan} trong CSDL.`,
-            });
+          if (!duLieu) {
+            // ======================================================
+            // FALLBACK: lấy dữ liệu học tập gần nhất của cùng học phần
+            // (học kỳ khác) để dự đoán vẫn chạy được
+            // ======================================================
+
+            const resultFallback = await pool
+              .request()
+              .input("ID_SINH_VIEN", sql.Int, sinhVien.ID_SINH_VIEN)
+              .input("ID_HOC_PHAN", sql.Int, hp.ID_HOC_PHAN).query(`
+    SELECT TOP 1
+        TY_LE_HOAN_THANH_BAI_TAP,
+        SO_BUOI_NGHI,
+        HOC_KY,
+        NAM_HOC
+    FROM KET_QUA_HOC_PHAN
+    WHERE
+        ID_SINH_VIEN = @ID_SINH_VIEN
+        AND ID_HOC_PHAN = @ID_HOC_PHAN
+    ORDER BY
+        NAM_HOC DESC,
+        HOC_KY DESC
+  `);
+
+            if (resultFallback.recordset.length > 0) {
+              duLieu = resultFallback.recordset[0];
+            } else {
+              return res.status(404).json({
+                thanhCong: false,
+
+                thongBao: `Chưa có dữ liệu học tập của ${maHocPhan} trong CSDL cho học kỳ ${hocKyNumber} năm học ${namHocString}. Hãy nhập điểm thi cho học phần này hoặc chọn học kỳ khác.`,
+              });
+            }
           }
-
-          const duLieu = resultDuLieu.recordset[0];
 
           // ----------------------------------------------------
           // Chỉ kiểm tra 2 dữ liệu ML còn cần lấy từ CSDL

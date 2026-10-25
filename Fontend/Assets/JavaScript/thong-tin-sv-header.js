@@ -1,5 +1,51 @@
 
 // ======================================================
+// ẢNH ĐẠI DIỆN
+// ======================================================
+
+const ANH_DAI_DIEN_MAC_DINH_SV =
+  "/Assets/Images/Avatars/sv-mac-dinh.jpg";
+
+function datAnhDaiDien(duongDan, hoTen) {
+  const danhSach = document.querySelectorAll(".atavar, .avatar-sv");
+
+  if (!danhSach.length) {
+    return;
+  }
+
+  const url =
+    String(duongDan || "").trim() ||
+    ANH_DAI_DIEN_MAC_DINH_SV;
+
+  const chu =
+    String(hoTen || "?").trim().charAt(0).toUpperCase();
+
+  danhSach.forEach((o) => {
+    o.innerHTML = "";
+
+    const img = document.createElement("img");
+
+    img.src = url;
+
+    img.alt = hoTen || "Ảnh đại diện";
+
+    img.addEventListener("error", () => {
+      o.textContent = chu;
+
+      o.style.display = "flex";
+
+      o.style.alignItems = "center";
+
+      o.style.justifyContent = "center";
+
+      o.style.fontWeight = "700";
+    });
+
+    o.appendChild(img);
+  });
+}
+
+// ======================================================
 // LẤY THÔNG TIN NGƯỜI DÙNG
 // ======================================================
 
@@ -69,9 +115,9 @@ async function layThongTinNguoiDung() {
     let apiHoSo = "";
 
     if (vaiTro === "SINH_VIEN") {
-      apiHoSo = "http://localhost:3000/api/sinh-vien/ho-so";
+      apiHoSo = "/api/sinh-vien/ho-so";
     } else if (vaiTro === "GIANG_VIEN") {
-      apiHoSo = "http://localhost:3000/api/giang-vien/ho-so";
+      apiHoSo = "/api/giang-vien/ho-so";
     } else {
       console.error("Vai trò không được hỗ trợ:", vaiTro);
       return;
@@ -133,6 +179,12 @@ async function layThongTinNguoiDung() {
         nguoiDung.MA_SINH_VIEN ||
         nguoiDung.maSinhVien ||
         "Chưa cập nhật";
+
+      datAnhDaiDien(
+        nguoiDung.ANH_DAI_DIEN ||
+          nguoiDung.anhDaiDien,
+        hoTen
+      );
     }
 
     if (vaiTro === "GIANG_VIEN") {
@@ -389,7 +441,7 @@ if (nutDangXuat) {
         if (idPhien) {
 
           const phanHoi = await fetch(
-            "http://localhost:3000/api/dang-xuat",
+            "/api/dang-xuat",
             {
               method: "POST",
 
@@ -444,7 +496,7 @@ if (nutDangXuat) {
 
         window.location.href =
           window.location.origin +
-          "/Fontend/index.html";
+          "/index.html";
       }
     }
   );
@@ -464,7 +516,7 @@ async function layThongKeTruyCap() {
     // ==================================================
 
     const phanHoi = await fetch(
-      "http://localhost:3000/api/thong-ke-truy-cap"
+      "/api/thong-ke-truy-cap"
     );
 
     const duLieu =

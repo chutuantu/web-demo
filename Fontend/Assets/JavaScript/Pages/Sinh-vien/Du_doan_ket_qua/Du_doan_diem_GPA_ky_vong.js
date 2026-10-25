@@ -583,6 +583,29 @@ function kiemTraTatCaTinChi() {
       false;
   }
 
+  if (
+    !hopLe
+  ) {
+    const loiDauTien =
+      document.querySelector(
+        ".input-loi",
+      );
+
+    if (
+      loiDauTien
+    ) {
+      loiDauTien.scrollIntoView(
+        {
+          behavior:
+            "smooth",
+
+          block:
+            "center",
+        },
+      );
+    }
+  }
+
   return hopLe;
 }
 
@@ -675,6 +698,29 @@ function kiemTraThongTin() {
       }
     },
   );
+
+  if (
+    !hopLe
+  ) {
+    const loiDauTien =
+      document.querySelector(
+        ".input-gpa-loi",
+      );
+
+    if (
+      loiDauTien
+    ) {
+      loiDauTien.scrollIntoView(
+        {
+          behavior:
+            "smooth",
+
+          block:
+            "center",
+        },
+      );
+    }
+  }
 
   return hopLe;
 }
@@ -951,7 +997,7 @@ const nutDuDoan =
 ========================================================= */
 
 const API_BASE_URL =
-  "http://localhost:3000";
+  "";
 
 const API_DU_DOAN_GPA_TOT_NGHIEP =
   `${API_BASE_URL}/api/du-doan/gpa-tot-nghiep`;

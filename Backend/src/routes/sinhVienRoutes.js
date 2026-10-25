@@ -23,7 +23,8 @@ router.get("/ho-so", xacThuc, phanQuyen("SINH_VIEN"), async (req, res) => {
   LOP_HOC,
   KHOA_HOC,
   NIEN_KHOA,
-  KHOA
+  KHOA,
+  ANH_DAI_DIEN
 FROM SINH_VIEN
 WHERE ID_TAI_KHOAN = @idTaiKhoan
                 `);

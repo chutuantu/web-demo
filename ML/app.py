@@ -1567,12 +1567,12 @@ if __name__ == "__main__":
 
     print("=" * 60)
 
-# Lấy cổng tự động do Render cấp, nếu chạy ở máy nhà thì tự dùng cổng 5000
-port = int(os.environ.get("PORT", 5000))
+    # Lấy cổng tự động do Render cấp, nếu chạy ở máy nhà thì tự dùng cổng 5000
+    port = int(os.environ.get("PORT", 5000))
 
-app.run(
-    host="0.0.0.0",
-    port=port,
-    debug=True
-)
+    app.run(
+        host="0.0.0.0",
+        port=port,
+        debug=False
+    )
 

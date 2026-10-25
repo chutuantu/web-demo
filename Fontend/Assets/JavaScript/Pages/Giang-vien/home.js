@@ -3,7 +3,7 @@
 // HOME GIẢNG VIÊN
 // ============================================================
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "";
 
 const API_HOME = `${API_BASE_URL}/api/giang-vien/home`;
 
@@ -413,11 +413,13 @@ function veBieuDoXuHuong(data) {
   // KHU VỰC VẼ
   // ----------------------------------------------------------
 
-  const paddingLeft = 20;
+  const laMobile = window.matchMedia("(max-width: 1024px)").matches;
 
-  const paddingRight = 20;
+  const paddingLeft = laMobile ? 26 : 20;
 
-  const paddingTop = 12;
+  const paddingRight = laMobile ? 12 : 20;
+
+  const paddingTop = laMobile ? 22 : 12;
 
   const paddingBottom = 38;
 
