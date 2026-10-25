@@ -1,4 +1,4 @@
-# web nckh — Hệ thống dự đoán kết quả học tập sinh viên
+# Hệ thống dự đoán kết quả học tập sinh viên
 
 Ứng dụng dự đoán **điểm học phần**, **GPA học kỳ kế tiếp** và **GPA tốt nghiệp** từ dữ liệu học tập (CSDL) kết hợp mô hình Machine Learning, phân quyền theo vai trò **Sinh viên** và **Giảng viên**.
 
