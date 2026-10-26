@@ -93,7 +93,15 @@ router.get("/gpa", xacThuc, phanQuyen("SINH_VIEN"), async (req, res) => {
           TONG_TIN_CHI
         FROM KET_QUA_HOC_KY
         WHERE ID_SINH_VIEN = @idSinhVien
-        ORDER BY HOC_KY ASC
+        ORDER BY
+          ISNULL(
+            TRY_CONVERT(
+              INT,
+              LEFT(NAM_HOC, 4)
+            ),
+            0
+          ) ASC,
+          HOC_KY ASC
       `);
 
     // 4. Trả dữ liệu
@@ -153,7 +161,15 @@ router.get("/nhan-dinh", xacThuc, phanQuyen("SINH_VIEN"), async (req, res) => {
           GPA
         FROM KET_QUA_HOC_KY
         WHERE ID_SINH_VIEN = @idSinhVien
-        ORDER BY HOC_KY ASC
+        ORDER BY
+          ISNULL(
+            TRY_CONVERT(
+              INT,
+              LEFT(NAM_HOC, 4)
+            ),
+            0
+          ) ASC,
+          HOC_KY ASC
       `);
 
     const danhSachGPA = ketQua.recordset;

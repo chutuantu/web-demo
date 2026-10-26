@@ -199,7 +199,8 @@ function chuanHoaTimKiem(value) {
   return String(value || "")
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d");
 }
 
 /* ============================================================
@@ -401,64 +402,47 @@ async function layDuLieuCanhBao(pool) {
 
   const gpaResult = await pool.request().query(`
         SELECT
-          KQ.ID_SINH_VIEN,
-          KQ.HOC_KY,
-          KQ.NAM_HOC,
-          KQ.GPA,
-          KQ.TONG_TIN_CHI
-        FROM KET_QUA_HOC_KY KQ
-        INNER JOIN (
+          X.ID_SINH_VIEN,
+          X.HOC_KY_GLOBAL,
+          X.NAM_HOC,
+          X.GPA,
+          X.TONG_TIN_CHI
+        FROM (
           SELECT
-            ID_SINH_VIEN,
-            MAX(
-              CONCAT(
-                RIGHT(
-                  '0000' +
-                  CAST(
-                    HOC_KY
-                    AS VARCHAR(4)
+            KQ.ID_SINH_VIEN,
+            KQ.NAM_HOC,
+            KQ.GPA,
+            KQ.TONG_TIN_CHI,
+
+            ROW_NUMBER() OVER (
+              PARTITION BY
+                KQ.ID_SINH_VIEN
+
+              ORDER BY
+                ISNULL(
+                  TRY_CONVERT(
+                    INT,
+                    LEFT(KQ.NAM_HOC, 4)
                   ),
-                  4
-                ),
-                RIGHT(
-                  '0000000000' +
-                  CAST(
-                    ID_KET_QUA
-                    AS VARCHAR(10)
-                  ),
-                  10
-                )
-              )
-            ) AS MAX_KEY
-          FROM KET_QUA_HOC_KY
+                  0
+                ) ASC,
+
+                KQ.HOC_KY ASC,
+
+                KQ.ID_KET_QUA ASC
+            ) AS HOC_KY_GLOBAL,
+
+            COUNT(*) OVER (
+              PARTITION BY
+                KQ.ID_SINH_VIEN
+            ) AS TONG_HOC_KY
+          FROM KET_QUA_HOC_KY KQ
           WHERE
-            GPA IS NOT NULL
-          GROUP BY
-            ID_SINH_VIEN
-        ) M
-          ON M.ID_SINH_VIEN =
-             KQ.ID_SINH_VIEN
-         AND M.MAX_KEY =
-             CONCAT(
-               RIGHT(
-                 '0000' +
-                 CAST(
-                   KQ.HOC_KY
-                   AS VARCHAR(4)
-                 ),
-                 4
-               ),
-               RIGHT(
-                 '0000000000' +
-                 CAST(
-                   KQ.ID_KET_QUA
-                   AS VARCHAR(10)
-                 ),
-                 10
-               )
-             )
+            KQ.GPA IS NOT NULL
+        ) X
         WHERE
-          KQ.GPA IS NOT NULL
+          X.HOC_KY_GLOBAL =
+          X.TONG_HOC_KY
       `);
 
   const mapGPA = new Map();
@@ -685,7 +669,7 @@ async function layDuLieuCanhBao(pool) {
     if (gpaThucTe === null && gpaRow) {
       gpaThucTe = lamTron(gpaRow.GPA, 2);
 
-      hocKyHienTai = Number(gpaRow.HOC_KY);
+      hocKyHienTai = Number(gpaRow.HOC_KY_GLOBAL);
 
       namHocHienTai = gpaRow.NAM_HOC || null;
 
@@ -906,7 +890,9 @@ function locSinhVien(danhSach, tuKhoa) {
     return [...danhSach];
   }
 
-  const tuKhoaChuanHoa = chuanHoaTimKiem(tuKhoa);
+  const cacTuKhoa = chuanHoaTimKiem(tuKhoa)
+    .split(/\s+/)
+    .filter(Boolean);
 
   return danhSach.filter(function (sv) {
     const chuoi = [sv.maSinhVien, sv.hoTen, sv.lopHoc, sv.khoaHoc, sv.nganhHoc]
@@ -915,7 +901,11 @@ function locSinhVien(danhSach, tuKhoa) {
       })
       .join(" ");
 
-    return chuanHoaTimKiem(chuoi).includes(tuKhoaChuanHoa);
+    const noiDung = chuanHoaTimKiem(chuoi);
+
+    return cacTuKhoa.every(function (tu) {
+      return noiDung.includes(tu);
+    });
   });
 }
 
@@ -962,18 +952,41 @@ function sapXepNguyCo(danhSach) {
 
 async function layXuHuongNguyCo(pool) {
   const ketQua = await pool.request().query(`
-        SELECT
-          X.HOC_KY,
-          COUNT(*) AS SO_LUONG
-        FROM
-        (
+        WITH HK_HISTORY AS (
+          SELECT
+            KQ.ID_SINH_VIEN,
+            KQ.NAM_HOC,
+            KQ.HOC_KY,
+
+            ROW_NUMBER() OVER (
+              PARTITION BY
+                KQ.ID_SINH_VIEN
+
+              ORDER BY
+                ISNULL(
+                  TRY_CONVERT(
+                    INT,
+                    LEFT(KQ.NAM_HOC, 4)
+                  ),
+                  0
+                ) ASC,
+
+                KQ.HOC_KY ASC,
+
+                KQ.ID_KET_QUA ASC
+            ) AS HOC_KY_GLOBAL
+          FROM KET_QUA_HOC_KY KQ
+        ),
+
+        DU_DOAN AS (
           /* ================================================
              DỰ ĐOÁN HỌC KỲ
           ================================================= */
 
           SELECT DISTINCT
             DD.ID_SINH_VIEN,
-            DD.HOC_KY
+            DD.HOC_KY,
+            DD.NAM_HOC
           FROM DU_DOAN_HOC_KY DD
           WHERE
             DD.GPA_DU_DOAN < 2.0
@@ -986,21 +999,49 @@ async function layXuHuongNguyCo(pool) {
 
           SELECT DISTINCT
             DD.ID_SINH_VIEN,
-            DD.HOC_KY_DU_DOAN AS HOC_KY
+            DD.HOC_KY_DU_DOAN AS HOC_KY,
+            CAST(NULL AS NVARCHAR(20)) AS NAM_HOC
           FROM DU_DOAN_GPA_HOC_KY_TIEP_THEO DD
           WHERE
             DD.GPA_DU_DOAN < 2.0
+        )
 
-        ) X
+        SELECT
+          COALESCE(
+            HK.HOC_KY_GLOBAL,
+            X.HOC_KY
+          ) AS HOC_KY,
+
+          COUNT(*) AS SO_LUONG
+        FROM DU_DOAN X
+
+        LEFT JOIN HK_HISTORY HK
+          ON
+            HK.ID_SINH_VIEN =
+              X.ID_SINH_VIEN
+
+            AND
+            HK.NAM_HOC =
+              X.NAM_HOC
+
+            AND
+            HK.HOC_KY =
+              X.HOC_KY
 
         WHERE
           X.HOC_KY IS NOT NULL
 
         GROUP BY
-          X.HOC_KY
+          COALESCE(
+            HK.HOC_KY_GLOBAL,
+            X.HOC_KY
+          )
 
         ORDER BY
-          X.HOC_KY ASC
+          COALESCE(
+            HK.HOC_KY_GLOBAL,
+            X.HOC_KY
+          ) ASC
       `);
 
   /* ==========================================================
@@ -1365,15 +1406,24 @@ router.get(
               AND GPA IS NOT NULL
 
             ORDER BY
+              ISNULL(
+                TRY_CONVERT(
+                  INT,
+                  LEFT(NAM_HOC, 4)
+                ),
+                0
+              ) ASC,
+
               HOC_KY ASC,
+
               ID_KET_QUA ASC
           `);
 
-      const gpaHocKyThucTe = gpaResult.recordset.map(function (item) {
+      const gpaHocKyThucTe = gpaResult.recordset.map(function (item, index) {
         return {
           idKetQua: Number(item.ID_KET_QUA),
 
-          hocKy: Number(item.HOC_KY),
+          hocKy: index + 1,
 
           namHoc: item.NAM_HOC || null,
 

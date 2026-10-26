@@ -46,6 +46,8 @@ const API_DANH_SACH_SINH_VIEN = `${API_BASE_URL}/api/giang-vien/danh-sach-sinh-v
 
 const API_THONG_KE_SINH_VIEN = `${API_BASE_URL}/api/giang-vien/danh-sach-sinh-vien/thong-ke`;
 
+const API_BO_LOC_SINH_VIEN = `${API_BASE_URL}/api/giang-vien/danh-sach-sinh-vien/bo-loc`;
+
 const API_CHI_TIET_SINH_VIEN = `${API_BASE_URL}/api/giang-vien/sinh-vien`;
 
 const API_XUAT_EXCEL = `${API_BASE_URL}/api/giang-vien/danh-sach-sinh-vien/xuat-excel`;
@@ -1305,6 +1307,73 @@ const chonTrangThai = document.getElementById("chon-trang-thai");
 // 25. KHỞI TẠO
 // ============================================================
 
+async function taiBoLocSinhVien() {
+  const token = layToken();
+
+  if (!token) {
+    return;
+  }
+
+  try {
+    const response = await fetch(API_BO_LOC_SINH_VIEN, {
+      method: "GET",
+
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+        Accept: "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data?.thanhCong) {
+      return;
+    }
+
+    const capNhat = function (select, danhSach) {
+      if (!select || !Array.isArray(danhSach)) {
+        return;
+      }
+
+      const giaTriDangChon = select.value;
+
+      select.innerHTML = "";
+
+      const tatCa = document.createElement("option");
+
+      tatCa.value = "";
+
+      tatCa.textContent = select.dataset.nhanMacDinh || "Tất cả";
+
+      select.appendChild(tatCa);
+
+      danhSach.forEach(function (giaTri) {
+        const option = document.createElement("option");
+
+        option.value = giaTri;
+
+        option.textContent = giaTri;
+
+        select.appendChild(option);
+      });
+
+      select.value = giaTriDangChon;
+    };
+
+    capNhat(chonKhoa, data.khoa);
+
+    capNhat(chonLop, data.lop);
+
+    capNhat(chonNganh, data.nganh);
+  } catch (error) {
+    console.error(
+      "Lỗi tải bộ lọc danh sách sinh viên:",
+      error,
+    );
+  }
+}
+
 async function khoiTaoTrang() {
   console.log("DANH SÁCH SINH VIÊN - KHỞI TẠO");
 
@@ -1315,6 +1384,8 @@ async function khoiTaoTrang() {
       soBanGhiMoiTrang = giaTri;
     }
   }
+
+  await taiBoLocSinhVien();
 
   await taiDanhSachSinhVien();
 

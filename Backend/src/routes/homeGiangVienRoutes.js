@@ -345,11 +345,11 @@ function taoDanhSachGPAHienThi(gpaLichSu, gpaThucTeList) {
   }
 
   if (Array.isArray(gpaThucTeList)) {
-    return gpaThucTeList.map(function (item) {
+    return gpaThucTeList.map(function (item, index) {
       return {
         idKetQua: item.ID_KET_QUA,
 
-        hocKy: Number(item.HOC_KY),
+        hocKy: index + 1,
 
         namHoc: item.NAM_HOC || null,
 
@@ -388,6 +388,7 @@ async function layDanhSachGPAThucTe(pool) {
         GPA IS NOT NULL
       ORDER BY
         ID_SINH_VIEN ASC,
+        NAM_HOC ASC,
         HOC_KY ASC,
         ID_KET_QUA ASC
     `);
@@ -434,7 +435,7 @@ async function layDuLieuSinhVien(pool) {
            GPA THỰC TẾ GẦN NHẤT
         ==================================================== */
 
-        KQ.HOC_KY
+        KQ.HOC_KY_GLOBAL
           AS HK_THUC_TE,
 
         KQ.NAM_HOC
@@ -521,23 +522,45 @@ async function layDuLieuSinhVien(pool) {
       OUTER APPLY (
         SELECT TOP 1
 
-          KQ1.HOC_KY,
+          KQ1.HOC_KY_GLOBAL,
 
           KQ1.NAM_HOC,
 
           KQ1.GPA
 
-        FROM KET_QUA_HOC_KY KQ1
+        FROM (
+          SELECT
 
-        WHERE
-          KQ1.ID_SINH_VIEN =
-            SV.ID_SINH_VIEN
+            KQ2.NAM_HOC,
 
-          AND KQ1.GPA IS NOT NULL
+            KQ2.GPA,
+
+            ROW_NUMBER() OVER (
+              ORDER BY
+                ISNULL(
+                  TRY_CONVERT(
+                    INT,
+                    LEFT(KQ2.NAM_HOC, 4)
+                  ),
+                  0
+                ) ASC,
+
+                KQ2.HOC_KY ASC,
+
+                KQ2.ID_KET_QUA ASC
+            ) AS HOC_KY_GLOBAL
+
+          FROM KET_QUA_HOC_KY KQ2
+
+          WHERE
+            KQ2.ID_SINH_VIEN =
+              SV.ID_SINH_VIEN
+
+            AND KQ2.GPA IS NOT NULL
+        ) KQ1
 
         ORDER BY
-          KQ1.HOC_KY DESC,
-          KQ1.ID_KET_QUA DESC
+          KQ1.HOC_KY_GLOBAL DESC
       ) KQ
 
       /* ======================================================
@@ -1904,15 +1927,16 @@ router.get(
                 @ID_SINH_VIEN
               AND GPA IS NOT NULL
             ORDER BY
+              NAM_HOC ASC,
               HOC_KY ASC,
               ID_KET_QUA ASC
           `);
 
-      const gpaThucTe = gpaResult.recordset.map(function (item) {
+      const gpaThucTe = gpaResult.recordset.map(function (item, index) {
         return {
           idKetQua: item.ID_KET_QUA,
 
-          hocKy: Number(item.HOC_KY),
+          hocKy: index + 1,
 
           namHoc: item.NAM_HOC,
 

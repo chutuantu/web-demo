@@ -86,8 +86,8 @@ router.get("/du-lieu", xacThuc, phanQuyen("SINH_VIEN"), async (req, res) => {
                 HOC_KY
           `);
 
-    const gpaLichSu = gpaResult.recordset.map((item) => ({
-      hocKy: Number(item.HOC_KY),
+    const gpaLichSu = gpaResult.recordset.map((item, index) => ({
+      hocKy: index + 1,
 
       namHoc: item.NAM_HOC,
 

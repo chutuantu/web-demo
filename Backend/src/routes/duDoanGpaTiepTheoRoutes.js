@@ -226,6 +226,13 @@ router.get(
               ID_SINH_VIEN = @ID_SINH_VIEN
               AND GPA IS NOT NULL
             ORDER BY
+              ISNULL(
+                TRY_CONVERT(
+                  INT,
+                  LEFT(NAM_HOC, 4)
+                ),
+                0
+              ) ASC,
               HOC_KY ASC,
               ID_KET_QUA ASC
           `);
@@ -241,8 +248,8 @@ router.get(
           hoTen: sinhVien.HO_TEN,
         },
 
-        gpa: result.recordset.map((item) => ({
-          hocKy: Number(item.HOC_KY),
+        gpa: result.recordset.map((item, index) => ({
+          hocKy: index + 1,
 
           namHoc: item.NAM_HOC,
 
