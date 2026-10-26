@@ -1,0 +1,62 @@
+/*==================================================
+                GIAO DIỆN MACBOOK (1280px - 1799px)
+
+  MacBook Air 13"  : 1280 x 800
+  MacBook Pro 14"  : 1440 x 900 (mặc định scaled) / 1536 x 864 (M1 Pro, M2 Pro)
+  MacBook Pro 16"  : 1728 x 1117
+
+  - Safari macOS: 100vh gồm cả thanh công cụ -> dùng svh (viewport thật)
+  - Safari macOS: backdrop-filter cần tiền tố -webkit-
+  - 1280px: khối tài khoản trên header bị nén -> tên bị cắt bằng ellipsis
+  - >= 1600px: nội dung giãn hết màn hình -> canh giữa, giới hạn bề rộng
+==================================================*/
+
+/* ---------- Safari macOS: viewport thật thay cho 100vh ---------- */
+@supports (height: 100svh) {
+  body {
+    min-height: 100svh;
+  }
+
+  .noi-dung-chinh,
+  .noi-dung-trang-chu {
+    min-height: 100svh;
+  }
+
+  #giao-dien-chinh {
+    min-height: 85svh;
+  }
+}
+
+/* ---------- Safari macOS: backdrop-filter có tiền tố ---------- */
+@media (min-width: 1280px) and (max-width: 1799px) {
+  .modal-home-gv,
+  .khung-modal-tai-nguyen,
+  .lop-phu-modal,
+  .lop-phu-chi-tiet-sinh-vien,
+  .modal-canh-bao-nguy-co,
+  .nut-phat-video {
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* ---------- 1280px - 1359px: header chật, tên tài khoản bị cắt ---------- */
+@media (min-width: 1280px) and (max-width: 1359px) {
+  .thong-tin {
+    width: auto;
+
+    min-width: 250px;
+
+    flex: 0 1 250px;
+  }
+}
+
+/* ---------- Màn rộng 1600px - 1799px: canh giữa cho dễ đọc ---------- */
+@media (min-width: 1600px) and (max-width: 1799px) {
+  .noi-dung-chinh {
+    max-width: 1600px;
+  }
+
+  .noi-dung-trang-chu {
+    max-width: 1600px;
+  }
+}
