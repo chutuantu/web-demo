@@ -26,6 +26,8 @@ const app = express();
 const path = require("path");
 
 app.use(cors());
+app.use('/api/admin/tai-khoan', require('./routes/adminTaiKhoanRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
 app.use(express.json());
 
 // Đăng nhập

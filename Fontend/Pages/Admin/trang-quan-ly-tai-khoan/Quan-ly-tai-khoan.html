@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../Assets/Css/reset.css" />
+    <link rel="stylesheet" href="../../../Assets/Css/var.css" />
+    <link rel="stylesheet" href="./quan-ly-tai-khoan.css?v=20261126-1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../../Assets/Css/mobile.css?v=20261025-11" />
+    <link rel="stylesheet" href="../../../Assets/Css/macbook.css?v=20261026-1" />
+    <script
+      src="../../../Assets/JavaScript/menu-mobile.js?v=20261025-2"
+      defer
+    ></script>
+    <title>Quản lý tài khoản | EduPredict</title>
+  </head>
+  <body>
+
+    <main class="page-wrap">
+
+      <section class="panel create-panel" aria-labelledby="createTitle">
+        <div class="panel-heading create-heading">
+          <h1 id="createTitle">
+            <i class="fa-solid fa-user-plus"></i>Tạo tài khoản mới
+          </h1>
+          <div class="heading-actions">
+            <div class="role-tabs" role="tablist" aria-label="Loại tài khoản">
+              <button
+                class="role-tab active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                data-loai="SINH_VIEN"
+              >
+                <i class="fa-solid fa-graduation-cap"></i>Sinh viên
+              </button>
+              <button
+                class="role-tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-loai="GIANG_VIEN"
+              >
+                <i class="fa-solid fa-chalkboard-user"></i>Giảng viên
+              </button>
+            </div>
+            <span class="heading-separator"></span>
+            <button
+              class="button button-light button-small"
+              id="btnDownloadTemplate"
+              type="button"
+            >
+              <i class="fa-regular fa-file-excel"></i>Tải mẫu Excel
+            </button>
+            <button
+              class="button button-light button-small"
+              id="btnImportExcel"
+              type="button"
+            >
+              <i class="fa-solid fa-file-arrow-up"></i>Nhập Excel
+            </button>
+            <input id="fileExcel" type="file" accept=".xlsx" hidden />
+            <span class="heading-separator"></span>
+            <a
+              class="button button-light button-small"
+              href="/Pages/Admin/Home.html"
+            >
+              <i class="fa-solid fa-database"></i>Nhập dữ liệu huấn luyện
+            </a>
+          </div>
+        </div>
+
+        <div class="panel-body create-body">
+          <form id="formTaiKhoan" autocomplete="off" novalidate>
+            <div class="field-grid" id="formFields"></div>
+            <div class="form-bottom">
+              <p class="form-note">
+                <i class="fa-solid fa-circle-info"></i>Mật khẩu được mã hóa
+                trước khi lưu vào hệ thống.
+              </p>
+              <div class="form-actions">
+                <button
+                  class="button button-outline"
+                  id="btnResetForm"
+                  type="reset"
+                >
+                  <i class="fa-solid fa-rotate-left"></i>Đặt lại
+                </button>
+                <button
+                  class="button button-primary"
+                  id="btnCreateAccount"
+                  type="submit"
+                >
+                  <i class="fa-solid fa-paper-plane"></i>Tạo tài khoản
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel list-panel" aria-labelledby="listTitle">
+        <div class="panel-heading list-heading">
+          <h2 id="listTitle">
+            <i class="fa-solid fa-list-ul"></i>Danh sách tài khoản
+          </h2>
+          <div class="list-tools">
+            <span class="selected-counter" id="selectedCounter"
+              ><i class="fa-solid fa-square-check"></i>Đã chọn (0)</span
+            >
+            <button
+              class="button button-danger-outline button-small"
+              id="btnBulkDelete"
+              type="button"
+              disabled
+            >
+              <i class="fa-regular fa-trash-can"></i>Xóa hàng loạt
+            </button>
+            <span class="heading-separator"></span>
+            <label class="search-box">
+              <span class="sr-only">Tìm kiếm tài khoản</span>
+              <input
+                id="inputSearch"
+                type="search"
+                placeholder="Tìm theo mã, họ tên, lớp..."
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <label class="page-size-control">
+              <span>Hiển thị</span>
+              <select id="pageSize" aria-label="Số tài khoản mỗi trang">
+                <option value="10" selected>10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+              </select>
+              <span>bản ghi</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="account-table">
+            <thead id="tableHead"></thead>
+            <tbody id="tableBody">
+              <tr>
+                <td class="table-state" colspan="10">
+                  <i class="fa-solid fa-circle-notch fa-spin"></i>Đang tải dữ
+                  liệu...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <span id="tableSummary">Đang tải danh sách...</span>
+          <div class="pagination" id="pagination" aria-label="Phân trang"></div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <a class="footer-brand" href="#"
+          ><i class="fa-solid fa-graduation-cap"></i
+          ><strong>EduPredict</strong></a
+        >
+        <span class="footer-divider"></span>
+        <span class="footer-description"
+          >Hệ thống hỗ trợ phân tích và dự đoán kết quả học tập sinh viên –
+          Trường Đại học Nông - Lâm Bắc Giang</span
+        >
+        <div class="footer-links">
+          <a href="#"><i class="fa-solid fa-book-open"></i>Hướng dẫn sử dụng</a
+          ><a href="#"
+            ><i class="fa-solid fa-shield-halved"></i>Chính sách bảo mật</a
+          ><a href="#"><i class="fa-solid fa-phone"></i>Liên hệ hỗ trợ</a>
+        </div>
+      </footer>
+    </main>
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+          <div>
+            <span class="modal-eyebrow" id="modalEyebrow">Tài khoản</span>
+            <h2 id="modalTitle"></h2>
+          </div>
+          <button class="button button-light modal-close" id="btnCloseModal" type="button" aria-label="Đóng">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-content" id="modalContent"></div>
+        <div class="modal-footer" id="modalFooter"></div>
+      </div>
+    </div>
+
+    <script src="./quan-ly-tai-khoan.js?v=20261126-2"></script>
+    <script src="../../../Assets/JavaScript/bao-ve-trang.js?v=20261026-3"></script>
+  </body>
+</html>

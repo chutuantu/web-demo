@@ -147,21 +147,12 @@ function hetHanPhienVaChuyenVeDangNhap() {
   // Xac dinh khu vuc hien tai
   const duongDan = window.location.pathname.toLowerCase();
 
-  const dangOTrangSinhVien = duongDan.includes("/pages/sinh-vien/");
-
-  const dangOTrangGiangVien = duongDan.includes("/pages/giang-vien/");
-
-  // Sinh vien khong duoc vao khu vuc giang vien
-  if (dangOTrangGiangVien && vaiTro !== "GIANG_VIEN") {
-    window.location.href = "/Pages/Sinh-vien/Home.html";
-
-    return;
+  const khuVuc = { ADMIN: 'Admin', SINH_VIEN: 'Sinh-vien', GIANG_VIEN: 'Giang-vien' };
+  if (!Object.hasOwn(khuVuc, vaiTro)) {
+    xoaLuuTruPhien(); window.location.replace('/index.html'); return;
   }
-
-  // Giang vien khong duoc vao khu vuc sinh vien
-  if (dangOTrangSinhVien && vaiTro !== "SINH_VIEN") {
-    window.location.href = "/Pages/Giang-vien/Home.html";
-
+  if (!duongDan.startsWith(`/pages/${khuVuc[vaiTro].toLowerCase()}/`)) {
+    window.location.replace(`/Pages/${khuVuc[vaiTro]}/Home.html`);
     return;
   }
 

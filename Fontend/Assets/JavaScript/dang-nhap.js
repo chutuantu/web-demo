@@ -75,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const duLieu = await phanHoi.json();
 
-      console.log("Phản hồi backend:", duLieu);
 
       // ==============================
       // ĐĂNG NHẬP THẤT BẠI
@@ -127,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // KIỂM TRA THÔNG TIN
       // ==============================
 
-      console.log("Đăng nhập thành công:", duLieu);
 
       console.log("Mã đăng nhập:", duLieu.taiKhoan.maDangNhap);
 
@@ -145,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("→ Chuyển sang trang Giảng viên");
 
         window.location.href = "Pages/Giang-vien/Home.html";
+      } else if (duLieu.taiKhoan.vaiTro === "ADMIN") {
+        window.location.href = "Pages/Admin/trang-quan-ly-tai-khoan/Quan-ly-tai-khoan.html";
       } else {
         alert("Vai trò tài khoản không hợp lệ.");
       }
