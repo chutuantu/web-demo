@@ -113,49 +113,72 @@ function tinhGpaCanDat(gpaMucTieu, gpaHienTai, tinChiTichLuy, tinChiToanKhoa) {
 // ============================================================
 // ĐÁNH GIÁ KHẢ NĂNG ĐẠT MỤC TIÊU
 //
-// Đây là mức đánh giá trong giao diện,
-// KHÔNG phải xác suất thống kê.
+// Dùng CHUNG mô hình phân phối xác suất với phần "so sánh
+// nhanh các mục tiêu" để vòng tròn và các thẻ bên dưới
+// luôn cho cùng một con số.
+//
+// - GPA dự kiến đã đạt/vượt mục tiêu → 100%.
+// - Mục tiêu đúng một ngưỡng xếp loại → lấy đúng xác suất
+//   của ngưỡng đó (khớp với thẻ tương ứng).
+// - Mục tiêu nằm giữa hai ngưỡng → nội suy tuyến tính.
 // ============================================================
 
-function danhGiaKhaNang(gpaDuDoan, gpaMucTieu) {
-  const chenhLech = gpaDuDoan - gpaMucTieu;
+const MUC_TIEU_XEP_LOAI = [
+  { ten: "Xuất sắc", gpa: 3.6, khoa: "xuatSac" },
+  { ten: "Giỏi", gpa: 3.2, khoa: "gioi" },
+  { ten: "Khá", gpa: 2.5, khoa: "kha" },
+  { ten: "Trung bình", gpa: 2.0, khoa: "trungBinh" },
+];
 
-  if (chenhLech >= 0.15) {
-    return {
-      muc: "Cao",
-      phanTram: 90,
-      moTa: "GPA dự kiến đang cao hơn mục tiêu.",
-    };
-  }
+function danhGiaKhaNang(gpaDuDoan, gpaMucTieu, phanTram) {
+  const muc = (() => {
+    if (phanTram >= 80) {
+      return "Cao";
+    }
 
-  if (chenhLech >= 0) {
-    return {
-      muc: "Khá cao",
-      phanTram: 80,
-      moTa: "GPA dự kiến đạt hoặc nhỉnh hơn mục tiêu.",
-    };
-  }
+    if (phanTram >= 50) {
+      return "Khá cao";
+    }
 
-  if (chenhLech >= -0.15) {
-    return {
-      muc: "Trung bình",
-      phanTram: 60,
-      moTa: "GPA dự kiến khá gần mục tiêu.",
-    };
-  }
+    if (phanTram >= 25) {
+      return "Trung bình";
+    }
 
-  if (chenhLech >= -0.35) {
-    return {
-      muc: "Thấp",
-      phanTram: 40,
-      moTa: "GPA dự kiến đang thấp hơn mục tiêu.",
-    };
-  }
+    if (phanTram > 0) {
+      return "Thấp";
+    }
+
+    return "Rất thấp";
+  })();
+
+  const moTa = (() => {
+    if (gpaDuDoan >= gpaMucTieu) {
+      return "GPA dự kiến đã đạt mục tiêu.";
+    }
+
+    if (phanTram >= 80) {
+      return "GPA dự kiến đang rất gần mục tiêu.";
+    }
+
+    if (phanTram >= 50) {
+      return "GPA dự kiến khá gần mục tiêu.";
+    }
+
+    if (phanTram >= 25) {
+      return "GPA dự kiến còn cách mục tiêu một đoạn.";
+    }
+
+    if (phanTram > 0) {
+      return "GPA dự kiến đang thấp hơn mục tiêu.";
+    }
+
+    return "GPA dự kiến còn cách khá xa mục tiêu.";
+  })();
 
   return {
-    muc: "Rất thấp",
-    phanTram: 20,
-    moTa: "GPA dự kiến còn cách khá xa mục tiêu.",
+    muc,
+    phanTram,
+    moTa,
   };
 }
 
@@ -298,19 +321,19 @@ function taoLoiKhuyen({
 }
 
 // ============================================================
-// SO SÁNH 4 MỤC TIÊU
+// PHÂN PHỐI XÁC SUẤT THEO XẾP LOẠI
+//
+// Dùng chung cho vòng tròn "khả năng đạt mục tiêu" và
+// phần "so sánh nhanh các mục tiêu" để hai nơi luôn
+// cho cùng một con số.
 // ============================================================
 
-function taoSoSanhMucTieu({ gpaDuDoan }) {
+function tinhPhanBoXepLoai(gpaDuDoan) {
   const gpa = Number(gpaDuDoan);
 
   if (!Number.isFinite(gpa)) {
-    return [];
+    return null;
   }
-
-  // ----------------------------------------------------------
-  // Các ngưỡng xếp loại
-  // ----------------------------------------------------------
 
   const nguong = {
     xuatSac: 3.6,
@@ -318,13 +341,6 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
     kha: 2.5,
     trungBinh: 2.0,
   };
-
-  // ----------------------------------------------------------
-  // Tạo điểm tương đối theo khoảng cách đến từng mức
-  //
-  // GPA càng gần / càng vượt mức thì điểm càng cao.
-  // Sau đó chuẩn hóa để tổng = 100%.
-  // ----------------------------------------------------------
 
   function tinhDiem(muc) {
     const khoangCach = Math.abs(gpa - muc);
@@ -337,10 +353,6 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
   let diemKha = 0;
   let diemTrungBinh = 0;
   let diemYeu = 0;
-
-  // ----------------------------------------------------------
-  // GPA >= 3.6
-  // ----------------------------------------------------------
 
   if (gpa >= nguong.xuatSac) {
     diemXuatSac = 1;
@@ -361,50 +373,16 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
     diemYeu = 1;
   }
 
-  // ----------------------------------------------------------
-  // Chuẩn hóa tổng = 100
-  // ----------------------------------------------------------
-
   const tongDiem = diemXuatSac + diemGioi + diemKha + diemTrungBinh + diemYeu;
 
   if (tongDiem <= 0) {
-    return [
-      {
-        ten: "Xuất sắc",
-        gpaMucTieu: 3.6,
-        gpaCanDat: 4,
-        khaNang: "Rất thấp",
-        phanTramKhaNang: 0,
-      },
-      {
-        ten: "Giỏi",
-        gpaMucTieu: 3.2,
-        gpaCanDat: 4,
-        khaNang: "Rất thấp",
-        phanTramKhaNang: 0,
-      },
-      {
-        ten: "Khá",
-        gpaMucTieu: 2.5,
-        gpaCanDat: 4,
-        khaNang: "Rất thấp",
-        phanTramKhaNang: 0,
-      },
-      {
-        ten: "Trung bình",
-        gpaMucTieu: 2.0,
-        gpaCanDat: 4,
-        khaNang: "Rất thấp",
-        phanTramKhaNang: 0,
-      },
-      {
-        ten: "Yếu",
-        gpaMucTieu: 0,
-        gpaCanDat: 4,
-        khaNang: "Rất thấp",
-        phanTramKhaNang: 100,
-      },
-    ];
+    return {
+      xuatSac: 0,
+      gioi: 0,
+      kha: 0,
+      trungBinh: 0,
+      yeu: 100,
+    };
   }
 
   const phanTramXuatSac = Math.round((diemXuatSac / tongDiem) * 100);
@@ -417,10 +395,6 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
 
   let phanTramYeu = Math.round((diemYeu / tongDiem) * 100);
 
-  // ----------------------------------------------------------
-  // Sửa sai số do làm tròn
-  // ----------------------------------------------------------
-
   const tong =
     phanTramXuatSac +
     phanTramGioi +
@@ -430,9 +404,66 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
 
   phanTramYeu += 100 - tong;
 
-  // ----------------------------------------------------------
-  // Hàm mức đánh giá
-  // ----------------------------------------------------------
+  return {
+    xuatSac: phanTramXuatSac,
+    gioi: phanTramGioi,
+    kha: phanTramKha,
+    trungBinh: phanTramTrungBinh,
+    yeu: phanTramYeu,
+  };
+}
+
+// ============================================================
+// XÁC SUẤT ĐẠT MỤC TIÊU (NỘI SUY GIỮA CÁC NGƯỠNG)
+// ============================================================
+
+function tinhPhanTramDatMucTieu(phanBo, gpaDuDoan, gpaMucTieu) {
+  if (!phanBo) {
+    return 0;
+  }
+
+  const mucTieu = Number(gpaMucTieu);
+
+  if (!Number.isFinite(mucTieu)) {
+    return 0;
+  }
+
+  if (Number(gpaDuDoan) >= mucTieu) {
+    return 100;
+  }
+
+  const moc = MUC_TIEU_XEP_LOAI;
+
+  if (mucTieu >= moc[0].gpa) {
+    return phanBo[moc[0].khoa];
+  }
+
+  for (let i = 0; i < moc.length - 1; i += 1) {
+    const tren = moc[i];
+    const duoi = moc[i + 1];
+
+    if (mucTieu <= tren.gpa && mucTieu >= duoi.gpa) {
+      const tyLe = (mucTieu - duoi.gpa) / (tren.gpa - duoi.gpa);
+
+      const giaTri = phanBo[duoi.khoa] + (phanBo[tren.khoa] - phanBo[duoi.khoa]) * tyLe;
+
+      return Math.round(Math.max(0, Math.min(100, giaTri)));
+    }
+  }
+
+  return phanBo[moc[moc.length - 1].khoa];
+}
+
+// ============================================================
+// SO SÁNH 4 MỤC TIÊU
+// ============================================================
+
+function taoSoSanhMucTieu({ gpaDuDoan }) {
+  const phanBo = tinhPhanBoXepLoai(gpaDuDoan);
+
+  if (!phanBo) {
+    return [];
+  }
 
   function danhGia(phanTram) {
     if (phanTram >= 80) {
@@ -459,36 +490,36 @@ function taoSoSanhMucTieu({ gpaDuDoan }) {
       ten: "Xuất sắc",
       gpaMucTieu: 3.6,
       gpaCanDat: 3.6,
-      khaNang: danhGia(phanTramXuatSac),
-      phanTramKhaNang: phanTramXuatSac,
+      khaNang: danhGia(phanBo.xuatSac),
+      phanTramKhaNang: phanBo.xuatSac,
     },
     {
       ten: "Giỏi",
       gpaMucTieu: 3.2,
       gpaCanDat: 3.2,
-      khaNang: danhGia(phanTramGioi),
-      phanTramKhaNang: phanTramGioi,
+      khaNang: danhGia(phanBo.gioi),
+      phanTramKhaNang: phanBo.gioi,
     },
     {
       ten: "Khá",
       gpaMucTieu: 2.5,
       gpaCanDat: 2.5,
-      khaNang: danhGia(phanTramKha),
-      phanTramKhaNang: phanTramKha,
+      khaNang: danhGia(phanBo.kha),
+      phanTramKhaNang: phanBo.kha,
     },
     {
       ten: "Trung bình",
       gpaMucTieu: 2.0,
       gpaCanDat: 2.0,
-      khaNang: danhGia(phanTramTrungBinh),
-      phanTramKhaNang: phanTramTrungBinh,
+      khaNang: danhGia(phanBo.trungBinh),
+      phanTramKhaNang: phanBo.trungBinh,
     },
     {
       ten: "Yếu",
       gpaMucTieu: 0,
       gpaCanDat: 0,
-      khaNang: danhGia(phanTramYeu),
-      phanTramKhaNang: phanTramYeu,
+      khaNang: danhGia(phanBo.yeu),
+      phanTramKhaNang: phanBo.yeu,
     },
   ];
 }
@@ -802,7 +833,19 @@ router.post(
       // 17. KHẢ NĂNG ĐẠT MỤC TIÊU
       // ======================================================
 
-      const khaNang = danhGiaKhaNang(gpaDuDoan, mucTieu);
+      const phanBoXepLoai = tinhPhanBoXepLoai(gpaDuDoan);
+
+      const phanTramDatMucTieu = tinhPhanTramDatMucTieu(
+        phanBoXepLoai,
+        gpaDuDoan,
+        mucTieu,
+      );
+
+      const khaNang = danhGiaKhaNang(
+        gpaDuDoan,
+        mucTieu,
+        phanTramDatMucTieu,
+      );
 
       const khaNangDatMucTieu = khaNang.muc;
 

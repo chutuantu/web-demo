@@ -9,7 +9,6 @@ async function api(path,body){
   return r;
 }
 async function download(path,name){const blob=await (await api(path)).blob(), url=URL.createObjectURL(blob), a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-el('logout').onclick=async()=>{try{await fetch('/api/dang-xuat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({idPhien:stored('idPhien')})});}finally{xoaLuuTruPhien();location.replace('/index.html');}};
 let ready=null,revision=0;
 function reset(){revision++;ready=null;el('save').disabled=true;el('table').replaceChildren();status('dataStatus','');}
 el('file').onchange=reset;el('loai').onchange=reset;

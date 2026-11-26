@@ -1,0 +1,325 @@
+/*==================================================
+                    HEADER / FOOTER CHUNG
+                    Dùng cho các trang trong khu vực Admin
+==================================================*/
+
+/*==================================================
+                    HEADER
+==================================================*/
+
+#header {
+  width: 100%;
+  background-color: var(--xanh_la);
+}
+
+.thanh-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.nut-mo-menu,
+.nut-dong-menu {
+  display: none;
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  position: relative;
+}
+
+.main-menu > li {
+  margin: 0 80px;
+}
+
+.main-menu li a {
+  color: var(--trang_tinh);
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.main-menu li {
+  position: relative;
+}
+
+.main-menu ul.menu-con {
+  position: absolute;
+  top: 57px;
+  left: 0;
+  background-color: var(--xanh_la);
+  padding: 15px 0;
+  list-style: none;
+  width: 180px;
+  display: none;
+  z-index: 999;
+}
+
+.main-menu li:hover > ul.menu-con {
+  display: block;
+}
+
+.main-menu ul.menu-con li:hover a {
+  border-bottom: 2px solid #0fb530;
+}
+
+.main-menu ul.menu-con a {
+  padding: 8px 15px;
+  border-bottom: 2px solid #00ff33;
+}
+
+.main-menu ul.menu-con li:last-child > a {
+  padding: 8px 15px 0 15px;
+}
+
+.main-menu ul.menu-con li:last-child a {
+  border: none;
+}
+
+.main-menu > li > a::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  height: 5px;
+  width: 0%;
+  background: rgb(255, 0, 0);
+  transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.main-menu > li:hover > a::before {
+  width: 100%;
+}
+
+.lua-chon > a > i {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  color: var(--trang_tinh);
+}
+
+.thong-tin {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--trang_tinh);
+  cursor: pointer;
+  width: 220px;
+}
+
+.atavar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ddd;
+  border: 2px solid var(--trang_tinh);
+}
+
+.atavar img {
+  width: 100%;
+  height: 100%;
+}
+
+.ten {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ten span:first-child {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ten span:last-child {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.thong-tin > i {
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.thong-tin > i.active {
+  transform: rotate(180deg);
+}
+
+.thong-tin-chi-tiet {
+  position: absolute;
+  top: 65px;
+  right: -24px;
+  width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: none;
+  background-color: rgba(239, 227, 227, 0.5);
+  z-index: 999;
+}
+
+.thong-tin-chi-tiet.show {
+  display: block;
+}
+
+.thong-tin-chi-tiet > div {
+  padding: 14px 10px;
+  color: var(--den_thuan);
+}
+
+.thong-tin-chi-tiet > div:last-child {
+  color: red;
+}
+
+.thong-tin-chi-tiet div:hover {
+  background: #f2f8f3;
+}
+
+/*==================================================
+                    FOOTER
+==================================================*/
+
+#lien-he-footer {
+  margin-top: 40px;
+  background: var(--xanh_la);
+  color: var(--trang_tinh);
+}
+
+.footer {
+  width: 100%;
+  margin: auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+  gap: 40px;
+}
+
+.cot-footer h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.cot-footer h3 {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: var(--trang_tinh);
+}
+
+.cot-footer p {
+  color: #eefdf3;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.mang-xa-hoi {
+  display: flex;
+  gap: 12px;
+}
+
+.mang-xa-hoi a {
+  color: var(--trang_tinh);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.mang-xa-hoi a:hover {
+  color: #0fb530;
+}
+
+.dong-lien-he {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: #eefdf3;
+}
+
+.dong-lien-he i {
+  width: 18px;
+  color: #d8ffd6;
+}
+
+.cot-link {
+  display: flex;
+  gap: 35px;
+}
+
+.cot-link div {
+  display: flex;
+  flex-direction: column;
+}
+
+.cot-link a {
+  color: #eefdf3;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: 0.25s;
+}
+
+.cot-link a:hover {
+  color: #0fb530;
+  padding-left: 5px;
+}
+
+.footer-menu {
+  list-style: none;
+}
+
+.footer-menu > li {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.footer-menu a {
+  color: var(--trang_tinh);
+  text-decoration: none;
+}
+
+.footer-menu > a i {
+  margin-left: 5px;
+}
+
+.footer-menu a:hover {
+  color: #d8ffd6;
+}
+
+.footer-so-lieu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.o-thong-ke {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.o-thong-ke:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.o-thong-ke i {
+  color: #d8ffd6;
+  font-size: 20px;
+}
+
+.o-thong-ke strong {
+  display: block;
+  font-size: 20px;
+}
+
+.o-thong-ke span {
+  color: #eefdf3;
+  font-size: 13px;
+}
