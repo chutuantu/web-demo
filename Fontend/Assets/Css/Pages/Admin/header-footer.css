@@ -17,6 +17,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
+  position: relative;
 }
 
 .nut-mo-menu,
@@ -116,10 +117,18 @@
 .atavar {
   width: 45px;
   height: 45px;
+  flex: 0 0 45px;
   border-radius: 50%;
   overflow: hidden;
-  background: #ddd;
+  background: #e8f7ee;
   border: 2px solid var(--trang_tinh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--xanh_la);
 }
 
 .atavar img {
@@ -131,6 +140,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-width: 0;
 }
 
 .ten span:first-child {
@@ -141,6 +151,12 @@
 .ten span:last-child {
   font-size: 12px;
   opacity: 0.85;
+}
+
+.ten span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .thong-tin > i {
@@ -155,13 +171,13 @@
 .thong-tin-chi-tiet {
   position: absolute;
   top: 65px;
-  right: -24px;
+  right: 10px;
   width: 250px;
   border-radius: 15px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   display: none;
-  background-color: rgba(239, 227, 227, 0.5);
+  background-color: #ffffff;
   z-index: 999;
 }
 

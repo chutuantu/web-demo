@@ -32,19 +32,11 @@
 
     const taiKhoan = layTaiKhoan();
 
-    const chu = (taiKhoan?.maDangNhap || "A").trim().charAt(0).toUpperCase();
+    const chu = (taiKhoan?.maDangNhap || "N").trim().charAt(0).toUpperCase();
 
-    hopAvatar.textContent = chu;
-
-    hopAvatar.style.display = "flex";
-
-    hopAvatar.style.alignItems = "center";
-
-    hopAvatar.style.justifyContent = "center";
-
-    hopAvatar.style.fontWeight = "700";
-
-    hopAvatar.style.color = "var(--xanh_la)";
+    if (hopAvatar.textContent.trim() !== chu) {
+      hopAvatar.textContent = chu;
+    }
   }
 
   function capNhatThongTinTaiKhoan() {
